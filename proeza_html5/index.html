@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grupo Proeza - Soluciones financieras a tu medida. Créditos para mujeres emprendedoras, jóvenes, sector agropecuario y más. Más de 9 años transformando sueños en Bolivia.">
+    <meta name="keywords" content="créditos, préstamos, microfinanzas, Bolivia, Grupo Proeza, Cochabamba, Santa Cruz, La Paz">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Grupo Proeza | Soluciones Financieras a tu Medida">
+    <meta property="og:description" content="Más de 9 años transformando sueños en Bolivia. Créditos rápidos, transparentes y accesibles.">
+    <meta property="og:image" content="../assets/inicio1.png">
+    <meta property="og:url" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Grupo Proeza | Soluciones Financieras">
+    <meta property="twitter:description" content="Créditos rápidos, transparentes y accesibles en Bolivia.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Grupo Proeza | Soluciones Financieras a tu Medida - Bolivia</title>
+    
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Grupo Proeza",
+      "image": "../assets/logo.png",
+      "url": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/",
+      "telephone": "+59169417545",
+      "description": "Soluciones financieras a tu medida. Créditos para mujeres emprendedoras, jóvenes, sector agropecuario y más.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Pasos Kanki esq. Huallparimachi",
+        "addressLocality": "Cochabamba",
+        "addressCountry": "BO"
+      },
+      "foundingDate": "2017",
+      "areaServed": ["Cochabamba", "Santa Cruz", "La Paz"],
+      "sameAs": [
+        "https://www.facebook.com/FINANCIERAPROEZASRL/",
+        "https://www.instagram.com/proezasrl/",
+        "https://bo.linkedin.com/company/grupoproeza"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-primary-dark: #2E0A4A;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            
+            --color-success: #25D366;
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.6rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 8px 25px rgba(245, 197, 24, 0.4);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            --glass-border: rgba(245, 197, 24, 0.25);
+            --glass-blur: blur(12px);
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* ============================================
+           HERO CARRUSEL - CORREGIDO
+           ============================================ */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 600px;  /* Aumentado de 560px a 600px */
+            overflow: hidden;
+            border-radius: var(--radius-3xl);
+            margin: var(--spacing-8) 0 var(--spacing-12);
+            box-shadow: var(--shadow-xl);
+            background: var(--color-primary-dark);
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;  /* CAMBIADO de cover a contain */
+            background: var(--color-primary-dark);  /* Fondo para espacios vacíos */
+        }
+        
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(46,10,74,0.95) 0%, rgba(46,10,74,0.5) 70%, transparent 100%);
+            color: white;
+            padding: var(--spacing-12) var(--spacing-8);
+            text-align: center;
+        }
+        
+        .carousel-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-3);
+            letter-spacing: -0.02em;
+            color: var(--color-accent);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-subtitle {
+            font-size: var(--font-size-lg);
+            font-weight: 400;
+            opacity: 0.95;
+            color: var(--color-white);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 var(--spacing-6);
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-base);
+            pointer-events: auto;
+        }
+        
+        .carousel-btn:hover {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: scale(1.1);
+        }
+        
+        .carousel-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: var(--spacing-6);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--spacing-3);
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 40px;
+            height: 4px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: none;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--color-accent);
+            width: 60px;
+        }
+        
+        .carousel-indicator:hover {
+            background: rgba(245, 197, 24, 0.6);
+        }
+        
+        /* ============================================
+           SECCIONES
+           ============================================ */
+        .section-title-premium {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 50%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: var(--spacing-4);
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle-premium {
+            text-align: center;
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            font-weight: 400;
+            margin-bottom: var(--spacing-10);
+            letter-spacing: 0.3px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ============================================
+           MÉTRICAS
+           ============================================ */
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0 var(--spacing-12);
+        }
+        
+        .metric-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            transform: scaleX(0);
+            transition: transform var(--transition-slow);
+        }
+        
+        .metric-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 197, 24, 0.5);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        
+        .metric-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto var(--spacing-4);
+            background: rgba(245, 197, 24, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+        
+        .metric-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .metric-number {
+            font-size: var(--font-size-5xl);
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-2);
+            letter-spacing: -0.02em;
+        }
+        
+        .metric-number small {
+            font-size: var(--font-size-xl);
+            font-weight: 500;
+            color: var(--color-gray-300);
+        }
+        
+        .metric-label {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-white);
+            letter-spacing: 0.3px;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .metric-description {
+            font-size: var(--font-size-xs);
+            color: var(--color-gray-400);
+            line-height: 1.4;
+        }
+        
+        /* ============================================
+           PRODUCTOS
+           ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .product-card-container {
+            cursor: pointer;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            background: var(--color-primary-dark);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+        }
+        
+        .product-card-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(245, 197, 24, 0.2);
+            border-color: var(--color-accent);
+        }
+        
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 790 / 450;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+            display: block;
+        }
+        
+        .product-card-container:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(46,10,74,0.98) 0%, rgba(46,10,74,0.7) 60%, transparent 100%);
+            padding: var(--spacing-6);
+            color: white;
+        }
+        
+        .product-title-overlay {
+            font-size: var(--font-size-lg);
+            font-weight: 800;
+            margin-bottom: var(--spacing-2);
+            color: var(--color-accent);
+            letter-spacing: -0.2px;
+        }
+        
+        .product-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            margin-top: var(--spacing-2);
+            color: var(--color-accent) !important;
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+        
+        .product-cta:hover {
+            color: var(--color-white) !important;
+            gap: var(--spacing-3);
+        }
+        
+        .product-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+        
+        .product-cta:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           VALORES
+           ============================================ */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .value-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8) var(--spacing-5);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(245,197,24,0.08), transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .value-card:hover::before {
+            opacity: 1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 197, 24, 0.35);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-4);
+            background: rgba(245, 197, 24, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+        
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .value-title {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-3);
+            letter-spacing: -0.3px;
+        }
+        
+        .value-number {
+            font-size: var(--font-size-4xl);
+            font-weight: 900;
+            color: var(--color-accent);
+            line-height: 1.2;
+            margin: var(--spacing-3) 0;
+        }
+        
+        .value-number small {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-gray-400);
+        }
+        
+        .value-description {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin: var(--spacing-3) 0;
+        }
+        
+        .value-highlight {
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: var(--font-size-xs);
+            margin-top: var(--spacing-4);
+            padding-top: var(--spacing-4);
+            border-top: 1px solid rgba(245, 197, 24, 0.2);
+            letter-spacing: 0.3px;
+        }
+        
+        /* ============================================
+           RESPALDO INSTITUCIONAL
+           ============================================ */
+        .institucional-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .institucional-column {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+        }
+        
+        .institucional-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-6);
+            padding-bottom: var(--spacing-4);
+            border-bottom: 2px solid rgba(245, 197, 24, 0.2);
+        }
+        
+        .reguladora-item, .alianza-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5);
+            margin-bottom: var(--spacing-4);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            transition: all var(--transition-base);
+        }
+        
+        .reguladora-item:hover, .alianza-item:hover {
+            border-color: rgba(245, 197, 24, 0.4);
+            background: rgba(245, 197, 24, 0.05);
+            transform: translateX(4px);
+        }
+        
+        .reguladora-logo, .alianza-logo {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-2);
+        }
+        
+        .reguladora-logo img, .alianza-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .reguladora-info h4, .alianza-info h4 {
+            color: var(--color-accent);
+            font-size: var(--font-size-base);
+            font-weight: 800;
+            margin-bottom: var(--spacing-1);
+        }
+        
+        .reguladora-info .nombre-completo, .alianza-info .nombre-completo {
+            color: var(--color-accent);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            margin-bottom: var(--spacing-1);
+        }
+        
+        .reguladora-info p, .alianza-info p {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            line-height: 1.5;
+        }
+        
+        /* ============================================
+           TAL VEZ PODRÍA INTERESARTE
+           ============================================ */
+        .interes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .interes-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            transition: all var(--transition-base);
+        }
+        
+        .interes-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .interes-image-container {
+            background: linear-gradient(135deg, #1A0527, var(--color-primary-dark));
+            padding: var(--spacing-8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            border-bottom: 1px solid rgba(245, 197, 24, 0.2);
+        }
+        
+        .interes-image-container img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+        
+        .interes-body {
+            padding: var(--spacing-6);
+            text-align: center;
+        }
+        
+        .interes-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .interes-description {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-5);
+        }
+        
+        .btn-interes {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: var(--spacing-3) var(--spacing-6);
+            font-weight: 800;
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            font-family: inherit;
+            text-decoration: none;
+        }
+        
+        .btn-interes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(245, 197, 24, 0.5);
+        }
+        
+        /* ============================================
+           MODAL
+           ============================================ */
+           
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1A0527 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--radius-3xl);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid rgba(245, 197, 24, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: relative;
+            z-index: 10001;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            padding: var(--spacing-6) var(--spacing-8);
+            border-bottom: 1px solid rgba(245, 197, 24, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 900;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-body {
+            padding: var(--spacing-8);
+            color: var(--color-gray-200);
+            line-height: 1.8;
+        }
+
+        .modal-body h3 {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            margin: var(--spacing-6) 0 var(--spacing-3);
+        }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body strong {
+            color: var(--color-accent);
+        }
+
+        .modal-body ul {
+            margin: var(--spacing-3) 0;
+            padding-left: var(--spacing-6);
+        }
+
+        .modal-body li {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .modal-body a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .cta-section {
+            text-align: center;
+            margin: var(--spacing-16) 0 var(--spacing-8);
+            padding: var(--spacing-12) var(--spacing-6);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(245, 197, 24, 0.28);
+            border-radius: var(--radius-3xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+            animation: pulse-bg 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .cta-section p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border-radius: 60px;
+            font-weight: 900;
+            padding: var(--spacing-4) var(--spacing-8);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            letter-spacing: 0.5px;
+            border: none;
+            font-family: inherit;
+            min-height: 54px;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(245, 197, 24, 0.5);
+        }
+        
+        .btn-premium svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-premium:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           RESPONSIVE - CORREGIDO
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-carousel {
+                height: 520px;  /* Ajustado */
+            }
+            
+            .carousel-title {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .institucional-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .hero-carousel {
+                height: 440px;  /* Ajustado */
+                border-radius: var(--radius-2xl);
+            }
+            
+            .carousel-title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .carousel-subtitle {
+                font-size: var(--font-size-sm);
+            }
+            
+            .carousel-overlay {
+                padding: var(--spacing-6) var(--spacing-4);
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .section-title-premium {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .section-subtitle-premium {
+                font-size: var(--font-size-base);
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .cta-section h3 {
+                font-size: var(--font-size-xl);
+            }
+            
+            .modal-header {
+                padding: var(--spacing-4) var(--spacing-6);
+            }
+            
+            .modal-body {
+                padding: var(--spacing-6);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-carousel {
+                height: 380px;  /* Ajustado */
+            }
+            
+            .carousel-title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .metric-number {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .value-number {
+                font-size: var(--font-size-2xl);
+            }
+        }
+        
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        @keyframes pageEnter {
+    from { 
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body style="opacity: 0; animation: pageEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;">
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Carrusel -->
+        <section class="hero-carousel" id="heroCarousel" aria-label="Carrusel de presentación">
+            <div class="carousel-slide active">
+                <img src="../assets/carrusel1.png" alt="Soluciones Financieras a tu Medida" loading="eager">
+                <div class="carousel-overlay">
+                    <h1 class="carousel-title">Soluciones Financieras a tu Medida</h1>
+                    <p class="carousel-subtitle">Soluciones que Progresan</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/carrusel2.png" alt="Acompañamiento Personalizado" loading="lazy">
+                <div class="carousel-overlay">
+                    <h2 class="carousel-title">Acompañamiento Personalizado</h2>
+                    <p class="carousel-subtitle">Te guiamos en cada paso hacia tu éxito financiero</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/carrusel3.png" alt="Presencia Nacional" loading="lazy">
+                <div class="carousel-overlay">
+                    <h2 class="carousel-title">Presencia Nacional</h2>
+                    <p class="carousel-subtitle">Oficinas en los principales centros económicos de Bolivia</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="../assets/carrusel4.png" alt="Tecnología e Innovación" loading="lazy">
+                <div class="carousel-overlay">
+                    <h2 class="carousel-title">Tecnología e Innovación</h2>
+                    <p class="carousel-subtitle">Procesos rápidos y seguros para tu tranquilidad</p>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="carousel-btn" id="nextBtn" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators" role="tablist" aria-label="Indicadores del carrusel">
+                <button class="carousel-indicator active" data-slide="0" aria-label="Ir a slide 1" aria-selected="true"></button>
+                <button class="carousel-indicator" data-slide="1" aria-label="Ir a slide 2" aria-selected="false"></button>
+                <button class="carousel-indicator" data-slide="2" aria-label="Ir a slide 3" aria-selected="false"></button>
+                <button class="carousel-indicator" data-slide="3" aria-label="Ir a slide 4" aria-selected="false"></button>
+            </div>
+        </section>
+
+        <!-- Métricas -->
+        <section class="fade-in" aria-labelledby="metrics-title">
+            <h2 class="section-title-premium" id="metrics-title">Métricas que Hablan por Sí Mismas</h2>
+            <p class="section-subtitle-premium">Resultados que respaldan nuestra gestión financiera</p>
+            
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <div class="metric-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <div class="metric-number"><span class="counter" data-target="95">0</span><small>%</small></div>
+                    <div class="metric-label">Satisfacción del Cliente</div>
+                    <div class="metric-description">Encuestas realizadas en 2024</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="metric-number"><span class="counter" data-target="3">0</span></div>
+                    <div class="metric-label">Ciudades con Presencia Proeza</div>
+                    <div class="metric-description">Cochabamba · Santa Cruz · La Paz</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="metric-number"><span class="counter" data-target="100">0</span><small>%</small></div>
+                    <div class="metric-label">Transparencia</div>
+                    <div class="metric-description">Procesos claros · Sin comisiones ocultas</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="metric-number"><span class="counter" data-target="98">0</span><small>%</small></div>
+                    <div class="metric-label">Aprobación de Préstamos</div>
+                    <div class="metric-description">Clientes que confían nuevamente en nosotros</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos -->
+        <section class="fade-in" aria-labelledby="products-title">
+            <h2 class="section-title-premium" id="products-title">Nuestros Productos Financieros</h2>
+            <p class="section-subtitle-premium">Soluciones diseñadas para cada etapa de tu vida y negocio</p>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Productos generados dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Valores -->
+        <section class="fade-in" aria-labelledby="values-title">
+            <h2 class="section-title-premium" id="values-title">¿Por qué elegir Grupo Proeza?</h2>
+            <p class="section-subtitle-premium">Cinco pilares que construyen confianza financiera</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="value-title">Experiencia</div>
+                    <div class="value-number">9+ <small>años</small></div>
+                    <div class="value-description">Transformando los sueños de emprendedores bolivianos con soluciones financieras efectivas.</div>
+                    <div class="value-highlight">+2000 clientes respaldan nuestra trayectoria</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="value-title">Agilidad</div>
+                    <div class="value-number">3 <small>días</small></div>
+                    <div class="value-description">Tu préstamo aprobado en tiempo récord. Tus proyectos no pueden esperar.</div>
+                    <div class="value-highlight">Procesos digitales sin burocracia</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="value-title">Accesibilidad</div>
+                    <div class="value-number">100<small>%</small></div>
+                    <div class="value-description">Préstamos justos y cercanos. Soluciones adaptadas a tu realidad.</div>
+                    <div class="value-highlight">Sin requisitos imposibles</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="value-title">Fiabilidad</div>
+                    <div class="value-number">99<small>%</small></div>
+                    <div class="value-description">Confianza ganada con transparencia y compromiso en cada paso.</div>
+                    <div class="value-highlight">Tasas claras, sin sorpresas</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div class="value-title">Equidad</div>
+                    <div class="value-number">+500</div>
+                    <div class="value-description">Oportunidades para todos, sin importar tu punto de partida.</div>
+                    <div class="value-highlight">Tú sueñas, nosotros te financiamos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Respaldo Institucional -->
+        <section class="fade-in" aria-labelledby="institucional-title">
+            <h2 class="section-title-premium" id="institucional-title">Respaldo Institucional</h2>
+            <p class="section-subtitle-premium">Entes reguladores y alianzas que avalan nuestra gestión</p>
+            
+            <div class="institucional-grid">
+                <!-- Columna Izquierda: Reguladoras -->
+                <div class="institucional-column">
+                    <h3 class="institucional-title">Instituciones Reguladoras</h3>
+                    
+                    <div class="reguladora-item">
+                        <div class="reguladora-logo">
+                            <img src="../assets/SIN_logo.png" alt="Logo SIN" loading="lazy">
+                        </div>
+                        <div class="reguladora-info">
+                            <h4>SIN</h4>
+                            <div class="nombre-completo">Servicio de Impuestos Nacionales</div>
+                            <p>Cumplimiento de obligaciones tributarias</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reguladora-item">
+                        <div class="reguladora-logo">
+                            <img src="../assets/MTEPS_logo.png" alt="Logo MTEPS" loading="lazy">
+                        </div>
+                        <div class="reguladora-info">
+                            <h4>MTEPS</h4>
+                            <div class="nombre-completo">Ministerio de Trabajo, Empleo y Previsión Social</div>
+                            <p>Regulación de relaciones laborales y seguridad social</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reguladora-item">
+                        <div class="reguladora-logo">
+                            <img src="../assets/AEMP_logo.png" alt="Logo AEMP" loading="lazy">
+                        </div>
+                        <div class="reguladora-info">
+                            <h4>AEMP</h4>
+                            <div class="nombre-completo">Autoridad de Fiscalización de Empresas</div>
+                            <p>Control de la conducta empresarial y gobierno corporativo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Alianzas -->
+                <div class="institucional-column">
+                    <h3 class="institucional-title">Alianzas Estratégicas</h3>
+                    
+                    <div class="alianza-item">
+                        <div class="alianza-logo">
+                            <img src="../assets/CAINCO_logo.png" alt="Logo CAINCO" loading="lazy">
+                        </div>
+                        <div class="alianza-info">
+                            <h4>CAINCO</h4>
+                            <div class="nombre-completo">Cámara de Industria, Comercio, Servicios y Turismo de Santa Cruz</div>
+                            <p>La organización empresarial más influyente de Bolivia, con sede en Santa Cruz.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alianza-item">
+                        <div class="alianza-logo">
+                            <img src="../assets/ICAM_logo.png" alt="Logo ICAM" loading="lazy">
+                        </div>
+                        <div class="alianza-info">
+                            <h4>ICAM</h4>
+                            <div class="nombre-completo">Cámara de Industria, Comercio y Servicios de Cochabamba</div>
+                            <p>Institución gremial líder del departamento de Cochabamba.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tal vez podría interesarte -->
+        <section class="fade-in" aria-labelledby="interes-title">
+            <h2 class="section-title-premium" id="interes-title">Tal vez podría interesarte</h2>
+            <p class="section-subtitle-premium">Conoce nuestras iniciativas y empresas relacionadas</p>
+            
+            <div class="interes-grid">
+                <div class="interes-card">
+                    <div class="interes-image-container">
+                        <img src="../assets/madi_logo.png" alt="Logo Fundación MADI" loading="lazy">
+                    </div>
+                    <div class="interes-body">
+                        <h3 class="interes-title">Fundación MADI</h3>
+                        <p class="interes-description">Institución sin fines de lucro dedicada a la protección del medio ambiente, progreso social y desarrollo integral de la persona y la comunidad.</p>
+                        <a href="https://www.linkedin.com/company/fundacion-madi/?originalSubdomain=bo" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-interes" 
+                           aria-label="Ver información de Fundación MADI">
+                            Más información
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="interes-card">
+                    <div class="interes-image-container">
+                        <img src="../assets/proeza_tech.png" alt="Logo Proeza Tech" loading="lazy">
+                    </div>
+                    <div class="interes-body">
+                        <h3 class="interes-title">Proeza Tech S.R.L.</h3>
+                        <p class="interes-description">Empresa de servicios personalizados de programación informática, fundada en mayo de 2026 con sede en Cochabamba.</p>
+                        <a href="https://www.emis.com/php/company-profile/BO/Proeza_Tech_SRL_es_22716936.html" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-interes" 
+                           aria-label="Ver información de Proeza Tech">
+                            Más información
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section fade-in" aria-labelledby="cta-title">
+            <div class="cta-content">
+                <h3 id="cta-title">¿Necesitas más información?</h3>
+                <p>Completa nuestro formulario y un asesor de Grupo Proeza se contactará contigo para brindarte una atención personalizada.</p>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScF_uOU88c73dihtvg2ESpHZ0cgqAE7shu800FWpwebZC8Kyg/viewform?usp=publish-editor" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-premium">
+                    Solicitar información
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     MODAL (Se mantiene aquí porque es específico de esta página)
+     ============================================ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Contenido dinámico -->
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: PÁGINA DE INICIO - ENTERPRISE GRADE
+ * Empresa: Grupo Proeza
+ * Versión: 2.0.0
+ * ============================================================
+ */
+
+// Datos de productos
+const productosData = [
+    { nombre: "PROEZA MUJER AVANZA", imagen: "../assets/mujer2.png" },
+    { nombre: "PROEZA IMPULSO JOVEN", imagen: "../assets/impulsojoven.png" },
+    { nombre: "PROEZA IMPACTO VERDE", imagen: "../assets/impactoverde.png" },
+    { nombre: "PROEZA EMPRENDE", imagen: "../assets/emprende2.png" },
+    { nombre: "PROEZA RAÍCES FIRMES", imagen: "../assets/raicesfirmes.png" },
+    { nombre: "PROEZA ASALARIADO", imagen: "../assets/asalariado2.png" }
+];
+
+// Datos de modales
+const modalesData = {
+    'madi': {
+        titulo: 'Fundación MADI',
+        contenido: `
+            <h3>Resumen</h3>
+            <p>Fundación MADI es una Institución sin fines de lucro, independiente, que nace con el firme propósito de cooperar con la protección del medio ambiente, progreso social, el desarrollo integral de la persona y la comunidad.</p>
+            
+            <h3>Actividades</h3>
+            <p>Nuestras actividades la realizan un cuerpo calificado de profesionales comprometidos en diferentes áreas, que propagan los diferentes programas encaminados a preservar el medio ambiente, además de asistencia en las áreas de: salud, empleo, desarrollo económico, cultural, vivienda social, desarrollo humano que beneficie en el mejoramiento de la calidad de vida, a la niñez, juventud, familia y comunidad. Asimismo, la formación y orientación socio laboral.</p>
+            <p>Contamos con un área de innovación y estudios desde el que realizamos asesoría de proyectos sociales, evaluación y medición del impacto social.</p>
+            
+            <h3>¿Por qué MADI?</h3>
+            <p>Adoptamos el nombre por el interés de preservar el medio ambiente, los recursos naturales, su hábitat y apoyo a los recursos humanos en todas sus disciplinas.</p>
+            
+            <h3>Datos clave</h3>
+            <ul>
+                <li><strong>Sitio web:</strong> <a href="https://www.linkedin.com/company/fundacion-madi/about/" target="_blank" rel="noopener noreferrer">www.fundacionmadi.org</a></li>
+                <li><strong>Sector:</strong> Organizaciones sin ánimo de lucro</li>
+                <li><strong>Tamaño:</strong> 11-50 empleados</li>
+                <li><strong>Sede:</strong> Cochabamba, Bolivia</li>
+                <li><strong>Fundación:</strong> 2003</li>
+                <li><strong>Especialidades:</strong> professional services, cooperation, human development, continuous education, making a better world, Shifting paradigms</li>
+            </ul>
+        `
+    },
+    'proeza-tech': {
+        titulo: 'Proeza Tech S.R.L.',
+        contenido: `
+            <h3>Resumen</h3>
+            <p>Proeza Tech S.R.L. es una empresa en Bolivia, con sede principal en El Cercado. Opera en Servicios Personalizados de Programación Informática. La empresa fue fundada el 11 de mayo de 2026.</p>
+            
+            <h3>Casa Matriz</h3>
+            <p>Calle Obispo Anaya No 340, Zona Cala Cala, Edificio Sion, Piso Planta Baja, Barrio Pb-B, El Cercado; Cochabamba, Bolivia</p>
+            
+            <h3>Información básica</h3>
+            <ul>
+                <li><strong>Fecha de Incorporación:</strong> 11 de mayo de 2026</li>
+                <li><strong>Enlace:</strong> <a href="https://www.emis.com/php/company-profile/BO/Proeza_Tech_SRL_es_22716936.html" target="_blank" rel="noopener noreferrer">Ver perfil en EMIS</a></li>
+            </ul>
+        `
+    }
+};
+
+/**
+ * Renderiza los productos
+ */
+function renderProducts() {
+    const grid = document.getElementById('productsGrid');
+    
+    grid.innerHTML = productosData.map(p => `
+        <div class="product-card-container">
+            <div class="product-image-wrapper">
+                <img src="${p.imagen}" alt="${p.nombre}" class="product-image" loading="lazy">
+                <div class="product-overlay">
+                    <div class="product-title-overlay">${p.nombre}</div>
+                    <a href="productos.html" class="product-cta">
+                        Conocer más
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+/**
+ * Carrusel
+ */
+let currentSlide = 0;
+let carouselInterval;
+const slides = document.querySelectorAll('.carousel-slide');
+const indicators = document.querySelectorAll('.carousel-indicator');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        indicators[i].classList.remove('active');
+        indicators[i].setAttribute('aria-selected', 'false');
+    });
+    
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    indicators[index].setAttribute('aria-selected', 'true');
+    currentSlide = index;
+}
+
+function nextSlide() {
+    showSlide((currentSlide + 1) % totalSlides);
+}
+
+function prevSlide() {
+    showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+}
+
+function startAutoplay() {
+    carouselInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoplay() {
+    clearInterval(carouselInterval);
+}
+
+function initCarousel() {
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        nextSlide();
+        stopAutoplay();
+        startAutoplay();
+    });
+    
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        prevSlide();
+        stopAutoplay();
+        startAutoplay();
+    });
+    
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            stopAutoplay();
+            startAutoplay();
+        });
+    });
+    
+    // Pausar en hover
+    const carousel = document.getElementById('heroCarousel');
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    
+    startAutoplay();
+}
+
+/**
+ * Modal
+ */
+function openModal(key) {
+    const data = modalesData[key];
+    if (!data) return;
+    
+    document.getElementById('modalTitle').textContent = data.titulo;
+    document.getElementById('modalBody').innerHTML = data.contenido;
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function initModal() {
+    const modal = document.getElementById('modalOverlay');
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+/**
+ * Animación de contadores
+ */
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.dataset.target);
+                const duration = 2000;
+                const steps = 60;
+                const increment = target / steps;
+                let current = 0;
+                let step = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    step++;
+                    
+                    if (step >= steps) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, duration / steps);
+                
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+/**
+ * Fade-in animations
+ */
+function initFadeIn() {
+    const elements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    elements.forEach(el => observer.observe(el));
+}
+
+/**
+ * Inicialización
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        renderProducts();
+        initCarousel();
+        initModal();
+        animateCounters();
+        initFadeIn();
+        
+        console.log('✅ Página de inicio inicializada correctamente');
+    } catch (error) {
+        console.error('❌ Error al inicializar la página:', error);
+    }
+});
+
+// Exponer funciones globalmente
+if (typeof window !== 'undefined') {
+    window.ProezaHome = {
+        openModal,
+        closeModal
+    };
+}
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testimonios reales de clientes de Grupo Proeza. Conozca las experiencias de emprendedores bolivianos que confiaron en nuestros servicios financieros.">
+    <meta name="keywords" content="testimonios, opiniones, reseñas, Grupo Proeza, créditos Bolivia, préstamos confiables">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Testimonios Reales | Grupo Proeza">
+    <meta property="og:description" content="Historias reales de emprendedores bolivianos que confiaron en Grupo Proeza.">
+    <meta property="og:image" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/testimonios-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Testimonios Reales | Grupo Proeza">
+    <meta property="twitter:description" content="Historias reales de emprendedores bolivianos que confiaron en Grupo Proeza.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Testimonios Reales | Grupo Proeza - Historias de Emprendedores</title>
+    
+    <!-- Schema.org - Solo testimonios reales verificados -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Grupo Proeza",
+      "image": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/logo.png",
+      "url": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/",
+      "telephone": "+59169417545",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Pasos Kanki esq. Huallparimachi",
+        "addressLocality": "Cochabamba",
+        "addressCountry": "BO"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Freddy Cruz"
+          },
+          "reviewBody": "Soy contratista albañil. PROEZA me prestó dinero para comprar mi lote y construir mi casa. Gracias a ellos hoy tengo un techo propio para mi familia. El proceso fue ágil y el trato muy humano.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Sabino Arias"
+          },
+          "reviewBody": "Soy carpintero y gracias a PROEZA pude conseguir el capital que necesitaba para mi taller. Ahora tengo mejores herramientas y puedo aceptar más trabajos. Recomiendo totalmente sus servicios.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "María Josefina Condori"
+          },
+          "reviewBody": "Pude acceder a un crédito rápido y oportuno para salvar mi vivero de flores. PROEZA creyó en mí cuando más lo necesitaba. Su equipo me acompañó en cada paso del proceso.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-primary-dark: #2E0A4A;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            
+            --color-success: #25D366;
+            --color-star: #FFB800;
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 8px 25px rgba(245, 197, 24, 0.4);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        /* ============================================
+           HERO SECTION - IGUALADO A CONTÁCTANOS
+           ============================================ */
+        .hero-premium {
+            text-align: center;
+            margin: 1rem auto 3rem auto;
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245,197,24,0.25);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        
+        .badge-premium {
+            display: inline-block;
+            color: #F5C518;
+            background: rgba(245,197,24,0.12);
+            border: 1px solid rgba(245,197,24,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+        }
+        
+        .hero-premium h1 {
+            background: linear-gradient(135deg, #F5C518 0%, #FFE484 60%, #FFFFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 0 1rem 0;
+        }
+        
+        .hero-premium p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* ============================================
+           SECCIÓN DE ESTADÍSTICAS DE CONFIANZA
+           ============================================ */
+        .trust-stats {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-10) var(--spacing-6);
+            margin: var(--spacing-12) 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trust-stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .trust-stats-header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trust-stats-header h2 {
+            color: var(--color-primary-dark);
+            font-size: var(--font-size-2xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .trust-stats-header p {
+            color: var(--color-primary);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-4);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform var(--transition-base);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-3);
+            background: var(--color-primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+        
+        .stat-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: 900;
+            color: var(--color-primary-dark);
+            line-height: 1;
+            margin-bottom: var(--spacing-2);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 2px;
+        }
+        
+        .stat-suffix {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        
+        /* ============================================
+           FILTROS POR PRODUCTO
+           ============================================ */
+        .filters-section {
+            margin: var(--spacing-10) 0 var(--spacing-8);
+            text-align: center;
+        }
+        
+        .filters-title {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-3);
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-3) var(--spacing-5);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(245, 197, 24, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark);
+            border-color: transparent;
+            font-weight: 800;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .filter-count {
+            background: rgba(46, 10, 74, 0.2);
+            color: inherit;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 800;
+        }
+        
+        .filter-btn.active .filter-count {
+            background: rgba(46, 10, 74, 0.3);
+        }
+        
+        /* ============================================
+           TÍTULO DE SECCIÓN
+           ============================================ */
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: var(--spacing-6) 0 var(--spacing-3);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-8);
+            font-size: var(--font-size-base);
+        }
+        
+        /* ============================================
+           GRID DE TESTIMONIOS
+           ============================================ */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8);
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 80px;
+            color: var(--color-accent);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .star {
+            width: 18px;
+            height: 18px;
+            color: var(--color-star);
+            fill: var(--color-star);
+        }
+        
+        .rating-text {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+        }
+        
+        .testimonial-text {
+            color: var(--color-gray-100);
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            margin: var(--spacing-4) 0;
+            font-style: italic;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-5);
+            padding-top: var(--spacing-5);
+            border-top: 1px solid rgba(245, 197, 24, 0.2);
+        }
+        
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-accent);
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+        }
+        
+        .testimonial-avatar-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            border: 2px solid var(--color-accent);
+            flex-shrink: 0;
+        }
+        
+        .author-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .author-name-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            flex-wrap: wrap;
+        }
+        
+        .author-name {
+            font-weight: 800;
+            color: var(--color-accent);
+            font-size: var(--font-size-base);
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--color-success);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-size: 10px;
+            font-weight: 700;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+        
+        .verified-badge svg {
+            width: 10px;
+            height: 10px;
+        }
+        
+        .author-role {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            margin-top: 2px;
+        }
+        
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            background: rgba(245, 197, 24, 0.12);
+            color: var(--color-accent);
+            font-size: var(--font-size-xs);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-full);
+            margin-top: var(--spacing-3);
+            border: 1px solid rgba(245, 197, 24, 0.25);
+            font-weight: 700;
+            width: fit-content;
+        }
+        
+        .product-badge svg {
+            width: 12px;
+            height: 12px;
+        }
+        
+        /* ============================================
+           CTA COMPARTIR TESTIMONIO
+           ============================================ */
+        .cta-testimonial {
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.12) 0%, rgba(245, 197, 24, 0.05) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-3xl);
+            padding: var(--spacing-12) var(--spacing-6);
+            margin: var(--spacing-12) 0 var(--spacing-8);
+            text-align: center;
+            border: 1px solid rgba(245, 197, 24, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-testimonial::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+            animation: pulse-bg 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .cta-testimonial-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-quote-left,
+        .cta-quote-right {
+            position: absolute;
+            font-size: 120px;
+            color: var(--color-accent);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .cta-quote-left {
+            top: 20px;
+            left: 30px;
+            transform: rotate(180deg);
+        }
+        
+        .cta-quote-right {
+            bottom: -40px;
+            right: 30px;
+        }
+        
+        .cta-testimonial h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+            letter-spacing: -0.5px;
+        }
+        
+        .cta-testimonial p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .cta-benefits {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-6);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .cta-benefit {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+        
+        .cta-benefit svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-accent);
+        }
+        
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border-radius: 60px;
+            font-weight: 800;
+            padding: var(--spacing-4) var(--spacing-8);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            letter-spacing: 0.5px;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(245, 197, 24, 0.5);
+            background: linear-gradient(135deg, #FFD700 0%, var(--color-accent) 100%);
+        }
+        
+        .btn-premium svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-premium:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-premium h1 {
+                font-size: 2.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .hero-premium {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-premium h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-premium p {
+                font-size: var(--font-size-base);
+            }
+            
+            .section-title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .trust-stats {
+                padding: var(--spacing-6) var(--spacing-4);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-3);
+            }
+            
+            .stat-item {
+                padding: var(--spacing-4) var(--spacing-3);
+            }
+            
+            .filters-container {
+                gap: var(--spacing-2);
+            }
+            
+            .filter-btn {
+                padding: var(--spacing-2) var(--spacing-3);
+                font-size: var(--font-size-xs);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-4);
+            }
+            
+            .testimonial-card {
+                padding: var(--spacing-6);
+            }
+            
+            .cta-testimonial {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .cta-testimonial h3 {
+                font-size: var(--font-size-xl);
+            }
+            
+            .cta-benefits {
+                flex-direction: column;
+                gap: var(--spacing-3);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-premium h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-name-row {
+                justify-content: center;
+            }
+        }
+
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        @keyframes pageEnter {
+    from { 
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body style="opacity: 0; animation: pageEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;">
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-premium" aria-labelledby="hero-title">
+            <div class="badge-premium">Experiencias reales</div>
+            <h1 id="hero-title">Lo que dicen nuestros clientes</h1>
+            <p>Historias reales de personas y emprendedores que confiaron en Grupo Proeza para alcanzar sus metas financieras y transformar sus vidas.</p>
+        </section>
+
+        <!-- Estadísticas de Confianza -->
+        <section class="trust-stats" aria-labelledby="trust-title">
+            <div class="trust-stats-header">
+                <h2 id="trust-title">Nuestra trayectoria en números</h2>
+                <p>La confianza de miles de bolivianos nos respalda</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-number" data-target="3650">
+                        <span class="counter">3650</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Clientes satisfechos</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="stat-number">
+                        <span class="counter" data-decimal="true">4.9</span><span class="stat-suffix">/5</span>
+                    </div>
+                    <div class="stat-label">Calificación promedio</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-number">
+                        <span class="counter">98</span><span class="stat-suffix">%</span>
+                    </div>
+                    <div class="stat-label">Tasa de satisfacción</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-number">
+                        <span class="counter">15</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label">Años de experiencia</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters-section" aria-labelledby="filters-title">
+            <div class="filters-title" id="filters-title">Filtrar por producto</div>
+            <div class="filters-container" role="tablist" aria-label="Filtros de testimonios">
+                <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">
+                    Todos <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="raices-firmes">
+                    Raíces Firmes <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="emprende">
+                    Proeza Emprende <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="mujer-avanza">
+                    Mujer Avanza <span class="filter-count">1</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Grid de Testimonios -->
+        <section aria-labelledby="testimonials-title">
+            <h2 class="section-title" id="testimonials-title">Historias que inspiran</h2>
+            <p class="section-subtitle">Conozca las experiencias de quienes ya transformaron su vida con nosotros</p>
+            
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Los testimonios se generan dinámicamente con JavaScript -->
+            </div>
+        </section>
+
+        <!-- CTA Compartir Testimonio -->
+        <section class="cta-testimonial" aria-labelledby="cta-title">
+            <div class="cta-quote-left" aria-hidden="true">"</div>
+            <div class="cta-quote-right" aria-hidden="true">"</div>
+            
+            <div class="cta-testimonial-content">
+                <h3 id="cta-title">Sea parte de nuestra historia de éxito</h3>
+                <p>Comparta su experiencia con Grupo Proeza y ayude a otros emprendedores a conocer los beneficios de nuestros servicios financieros. Su testimonio puede inspirar a toda una comunidad.</p>
+                
+                <div class="cta-benefits">
+                    <div class="cta-benefit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Aparecer en nuestra web</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Ser parte de nuestra comunidad</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Inspirar a otros emprendedores</span>
+                    </div>
+                </div>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScy4NnTgsEOmKCc2NBAaxONJ-ZMa0UggRORMmuTYKmIn9kitA/viewform?usp=dialog" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-premium">
+                    Compartir mi testimonio
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: TESTIMONIOS - VERSIÓN ÉTICA Y REAL
+ * Empresa: Grupo Proeza
+ * Versión: 2.2.0
+ * ============================================================
+ */
+
+const testimoniosData = [
+    {
+        id: 1,
+        nombre: "Freddy Cruz",
+        profesion: "Contratista Albañil",
+        testimonio: "Soy contratista albañil. PROEZA me prestó dinero para comprar mi lote y construir mi casa. Gracias a ellos hoy tengo un techo propio para mi familia. El proceso fue ágil y el trato muy humano.",
+        producto: "PROEZA RAÍCES FIRMES",
+        productoKey: "raices-firmes",
+        iniciales: "FC",
+        imagen: "freddy_cruz.png",
+        rating: 5,
+        verificado: true
+    },
+    {
+        id: 2,
+        nombre: "Sabino Arias",
+        profesion: "Carpintero",
+        testimonio: "Soy carpintero y gracias a PROEZA pude conseguir el capital que necesitaba para mi taller. Ahora tengo mejores herramientas y puedo aceptar más trabajos. Recomiendo totalmente sus servicios.",
+        producto: "PROEZA EMPRENDE",
+        productoKey: "emprende",
+        iniciales: "SA",
+        imagen: "sabino_arias.png",
+        rating: 5,
+        verificado: true
+    },
+    {
+        id: 3,
+        nombre: "María Josefina Condori",
+        profesion: "Floricultora",
+        testimonio: "Pude acceder a un crédito rápido y oportuno para salvar mi vivero de flores. PROEZA creyó en mí cuando más lo necesitaba. Su equipo me acompañó en cada paso del proceso.",
+        producto: "PROEZA MUJER AVANZA",
+        productoKey: "mujer-avanza",
+        iniciales: "MC",
+        imagen: "maria_condori.png",
+        rating: 5,
+        verificado: true
+    }
+];
+
+function renderStars(rating) {
+    const fullStar = `<svg class="star" viewBox="0 0 24 24" aria-hidden="true">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    </svg>`;
+    
+    let starsHtml = '';
+    for (let i = 0; i < 5; i++) {
+        starsHtml += fullStar;
+    }
+    return starsHtml;
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function renderTestimonialCard(testimonio) {
+    const safeName = escapeHtml(testimonio.nombre);
+    const safeProfession = escapeHtml(testimonio.profesion);
+    const safeTestimony = escapeHtml(testimonio.testimonio);
+    const safeProduct = escapeHtml(testimonio.producto);
+    
+    const avatarHtml = testimonio.imagen 
+        ? `<img src="../assets/${testimonio.imagen}" 
+               alt="Foto de ${safeName}, ${safeProfession}" 
+               class="testimonial-avatar"
+               loading="lazy"
+               onerror="this.outerHTML='<div class=\\'testimonial-avatar-placeholder\\' aria-hidden=\\'true\\'>${testimonio.iniciales}</div>'">`
+        : `<div class="testimonial-avatar-placeholder" aria-hidden="true">${testimonio.iniciales}</div>`;
+    
+    const verifiedBadge = testimonio.verificado ? `
+        <span class="verified-badge" title="Cliente verificado de Grupo Proeza">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+            </svg>
+            Verificado
+        </span>
+    ` : '';
+    
+    return `
+        <article class="testimonial-card" 
+                 data-product="${testimonio.productoKey}"
+                 aria-labelledby="testimonial-${testimonio.id}">
+            <div class="quote-icon" aria-hidden="true">"</div>
+            
+            <div class="rating-container" aria-label="Calificación: ${testimonio.rating} de 5 estrellas">
+                <div class="stars" aria-hidden="true">
+                    ${renderStars(testimonio.rating)}
+                </div>
+                <span class="rating-text">${testimonio.rating}.0</span>
+            </div>
+            
+            <blockquote class="testimonial-text" id="testimonial-${testimonio.id}">
+                "${safeTestimony}"
+            </blockquote>
+            
+            <div class="testimonial-author">
+                ${avatarHtml}
+                <div class="author-info">
+                    <div class="author-name-row">
+                        <span class="author-name">${safeName}</span>
+                        ${verifiedBadge}
+                    </div>
+                    <div class="author-role">${safeProfession}</div>
+                    <div class="product-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        ${safeProduct}
+                    </div>
+                </div>
+            </div>
+        </article>
+    `;
+}
+
+function renderTestimonials(filter = 'all') {
+    const grid = document.getElementById('testimonialsGrid');
+    if (!grid) return;
+    
+    const filtered = filter === 'all' 
+        ? testimoniosData 
+        : testimoniosData.filter(t => t.productoKey === filter);
+    
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--color-gray-400);">
+                <p>No hay testimonios disponibles para este filtro.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = filtered.map(renderTestimonialCard).join('');
+    observeTestimonials();
+}
+
+function observeTestimonials() {
+    const cards = document.querySelectorAll('.testimonial-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    cards.forEach(card => observer.observe(card));
+}
+
+function initFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            
+            const filter = btn.dataset.filter;
+            renderTestimonials(filter);
+        });
+        
+        btn.addEventListener('keydown', (e) => {
+            const buttons = Array.from(filterButtons);
+            const currentIndex = buttons.indexOf(btn);
+            let newIndex = currentIndex;
+            
+            if (e.key === 'ArrowRight') {
+                newIndex = (currentIndex + 1) % buttons.length;
+                e.preventDefault();
+            } else if (e.key === 'ArrowLeft') {
+                newIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+                e.preventDefault();
+            }
+            
+            if (newIndex !== currentIndex) {
+                buttons[newIndex].focus();
+                buttons[newIndex].click();
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        renderTestimonials('all');
+        initFilters();
+        
+        console.log('✅ Sistema de testimonios inicializado correctamente');
+        console.log(`📊 Total de testimonios reales cargados: ${testimoniosData.length}`);
+    } catch (error) {
+        console.error('❌ Error al inicializar testimonios:', error);
+    }
+});
+
+if (typeof window !== 'undefined') {
+    window.ProezaTestimonials = {
+        renderTestimonials,
+        testimoniosData
+    };
+}
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>

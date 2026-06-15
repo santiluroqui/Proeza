@@ -1,0 +1,201 @@
+<style>
+  /* NAVBAR STYLES */
+  :root {
+    --color-primary-dark: #2E0A4A;
+    --color-primary: #3A0F5F;
+    --color-secondary: #F5C518;
+    --color-white: #FFFFFF;
+  }
+  
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--color-secondary);
+    box-shadow: 0 4px 20px rgba(46, 10, 74, 0.1);
+    width: 100%;
+  }
+
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-primary-dark);
+  }
+
+  .navbar-logo {
+    height: 52px;
+    width: auto;
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 0.3rem;
+    box-shadow: 0 2px 8px rgba(46, 10, 74, 0.1);
+    border: 1px solid #F0E6FF;
+  }
+
+  .navbar-logo-fallback {
+    height: 52px;
+    width: 52px;
+    background: linear-gradient(135deg, #4A1570 0%, #2E0A4A 100%);
+    color: var(--color-secondary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.6rem;
+  }
+
+  .navbar-brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-title {
+    color: var(--color-primary-dark);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .navbar-subtitle {
+    color: var(--color-secondary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.2rem;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-link {
+    color: #4A3B5C;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    border: 2px solid transparent;
+  }
+
+  .navbar-link:hover {
+    color: var(--color-secondary);
+    background: rgba(245, 197, 24, 0.08);
+  }
+
+  .navbar-link.active {
+    background: var(--color-secondary);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(245, 197, 24, 0.3);
+  }
+
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .navbar-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--color-primary-dark);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+    }
+    
+    .navbar-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: var(--color-white);
+      border-bottom: 1px solid #E0D7FF;
+      padding: 1rem;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    
+    .navbar-nav.active {
+      display: flex;
+    }
+    
+    .navbar-link {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <a href="../proeza_html5/index.html" class="navbar-brand" aria-label="Grupo Proeza - Inicio">
+      <img 
+        src="../assets/logo.png" 
+        alt="Logo Grupo Proeza" 
+        class="navbar-logo"
+        onerror="this.outerHTML='<div class=\'navbar-logo-fallback\'>P</div>'"
+      >
+      <div class="navbar-brand-text">
+        <h1 class="navbar-title">GRUPO PROEZA</h1>
+        <div class="navbar-subtitle">Soluciones Financieras</div>
+      </div>
+    </a>
+
+    <ul class="navbar-nav" id="navbarNav">
+      <li><a href="../proeza_html5/index.html" class="navbar-link" data-page="index">Inicio</a></li>
+      <li><a href="../proeza_html5/nosotros.html" class="navbar-link" data-page="nosotros">Nosotros</a></li>
+      <li><a href="../proeza_html5/productos.html" class="navbar-link" data-page="productos">Productos</a></li>
+      <li><a href="../proeza_html5/simulador.html" class="navbar-link" data-page="simulador">Simulador</a></li>
+      <li><a href="../proeza_html5/testimonios.html" class="navbar-link" data-page="testimonios">Testimonios</a></li>
+      <li><a href="../proeza_html5/contacto.html" class="navbar-link" data-page="contacto">Contáctanos</a></li>
+    </ul>
+
+    <button class="navbar-toggle" id="navbarToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>

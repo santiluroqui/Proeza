@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Canales de atención exclusivos de Grupo Proeza. Oficinas en Cochabamba, Santa Cruz y La Paz. Asesoría financiera personalizada y segura.">
+    <meta name="keywords" content="financiera, créditos, préstamos, Cochabamba, Santa Cruz, La Paz, Bolivia, Grupo Proeza">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/">
+    <meta property="og:title" content="Contáctanos | Grupo Proeza - Oficinas y Asesoría Premium">
+    <meta property="og:description" content="Canales de atención exclusivos. Oficinas en Cochabamba, Santa Cruz y La Paz. Síguenos en redes y recibe asesoría financiera personalizada.">
+    <meta property="og:image" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/">
+    <meta property="twitter:title" content="Contáctanos | Grupo Proeza">
+    <meta property="twitter:description" content="Canales de atención exclusivos. Oficinas en Cochabamba, Santa Cruz y La Paz.">
+    <meta property="twitter:image" content="https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    
+    <!-- Preconnect para dominios externos -->
+    <link rel="preconnect" href="https://docs.google.com">
+    <link rel="preconnect" href="https://wa.me">
+    <link rel="preconnect" href="https://www.instagram.com">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="preconnect" href="https://bo.linkedin.com">
+    
+    <title>Contáctanos | Grupo Proeza - Oficinas y Asesoría Premium</title>
+    
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Grupo Proeza",
+      "image": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/logo.png",
+      "url": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/",
+      "telephone": "+59169417545",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Pasos Kanki esq. Huallparimachi",
+        "addressLocality": "Cochabamba",
+        "addressCountry": "BO"
+      },
+      "sameAs": [
+        "https://www.facebook.com/FINANCIERAPROEZASRL/",
+        "https://www.instagram.com/proezasrl/",
+        "https://bo.linkedin.com/company/grupoproeza"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS - SISTEMA DE DISEÑO ENTERPRISE
+           ============================================ */
+        :root {
+            --color-primary-dark: #2E0A4A;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            --color-gray-600: rgba(255, 255, 255, 0.50);
+            
+            --color-success: #25D366;
+            --color-success-light: rgba(37, 211, 102, 0.2);
+            --color-success-border: rgba(37, 211, 102, 0.3);
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 8px 25px rgba(245, 197, 24, 0.4);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            --glass-border: rgba(245, 197, 24, 0.25);
+            --glass-blur: blur(12px);
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        /* ============================================
+           COMPONENTES BASE
+           ============================================ */
+        
+        .badge-premium {
+            display: inline-block;
+            background: rgba(245, 197, 24, 0.12);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-2) var(--spacing-5);
+            font-size: var(--font-size-xs);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-5);
+        }
+        
+        /* Hero Section */
+        .hero-premium {
+            text-align: center;
+            margin: var(--spacing-8) auto var(--spacing-12);
+            padding: var(--spacing-10) var(--spacing-6);
+            max-width: 1100px;
+            border-radius: var(--radius-3xl);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .hero-premium h1 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-5xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+            line-height: 1.2;
+        }
+        
+        .hero-premium p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: var(--spacing-6) 0 var(--spacing-3);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-8);
+            font-size: var(--font-size-base);
+        }
+        
+        /* ============================================
+           REDES SOCIALES
+           ============================================ */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .social-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-6);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .social-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .social-card:hover::before {
+            opacity: 1;
+        }
+        
+        .social-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 197, 24, 0.15);
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .social-name {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-user {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-sm);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ============================================
+           TABS (PESTAÑAS)
+           ============================================ */
+        .tabs-container {
+            margin: var(--spacing-8) 0;
+        }
+        
+        .tabs-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-8);
+            list-style: none;
+        }
+        
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-3) var(--spacing-6);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: inherit;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(245, 197, 24, 0.4);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark);
+            border-color: transparent;
+            font-weight: 800;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .tab-pane {
+            display: none;
+            animation: fadeIn var(--transition-base);
+        }
+        
+        .tab-pane.active-pane {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(8px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        /* ============================================
+           TARJETAS DE AGENCIAS
+           ============================================ */
+        .agencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--spacing-5);
+        }
+        
+        .agencia-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            transition: all var(--transition-base);
+        }
+        
+        .agencia-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .agencia-nombre {
+            color: var(--color-accent);
+            font-weight: 800;
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+        
+        .agencia-nombre::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--color-accent);
+        }
+        
+        .agencia-info {
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-3);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-3);
+        }
+        
+        .agencia-info-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            margin-top: 2px;
+        }
+        
+        .agencia-info-content {
+            flex: 1;
+        }
+        
+        .agencia-label {
+            color: var(--color-accent);
+            font-weight: 700;
+            display: block;
+            margin-bottom: var(--spacing-1);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-3);
+            margin-top: var(--spacing-5);
+        }
+        
+        .btn-mapa, 
+        .btn-whatsapp {
+            flex: 1;
+            padding: var(--spacing-3);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            transition: all var(--transition-base);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+        }
+        
+        .btn-mapa {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-accent);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+        }
+        
+        .btn-mapa:hover {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-whatsapp {
+            background: var(--color-success-light);
+            color: var(--color-success);
+            border: 1px solid var(--color-success-border);
+        }
+        
+        .btn-whatsapp:hover {
+            background: var(--color-success);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* ============================================
+           HORARIO CARD
+           ============================================ */
+        .horario-card {
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.1) 0%, rgba(245, 197, 24, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            text-align: center;
+            margin: var(--spacing-6) 0 var(--spacing-3);
+        }
+        
+        .horario-card h4 {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-3);
+        }
+        
+        .horario-item {
+            color: var(--color-gray-100);
+            font-size: var(--font-size-base);
+            margin: var(--spacing-3) 0;
+        }
+        
+        .horario-item strong {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+        }
+        
+        /* ============================================
+           CTA BOX
+           ============================================ */
+        .cta-box {
+            text-align: center;
+            margin: var(--spacing-8) auto var(--spacing-4);
+            padding: var(--spacing-8) var(--spacing-6);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .cta-box h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .cta-box p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-base);
+        }
+        
+        /* ============================================
+           FORMULARIO EMBEBIDO
+           ============================================ */
+        .form-container {
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 2px solid rgba(245, 197, 24, 0.3);
+            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            position: relative;
+        }
+        
+        .form-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--color-gray-400);
+        }
+        
+        .form-loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(245, 197, 24, 0.2);
+            border-top-color: var(--color-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto var(--spacing-4);
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .google-form-iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+        }
+        
+        @keyframes pageEnter {
+    from { 
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-premium h1 {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .agencies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .hero-premium {
+                padding: var(--spacing-8) var(--spacing-4);
+                margin: var(--spacing-6) auto var(--spacing-8);
+            }
+            
+            .hero-premium h1 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .hero-premium p {
+                font-size: var(--font-size-base);
+            }
+            
+            .section-title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: var(--spacing-4);
+            }
+            
+            .tabs-header {
+                gap: var(--spacing-2);
+            }
+            
+            .tab-btn {
+                padding: var(--spacing-2) var(--spacing-4);
+                font-size: var(--font-size-xs);
+            }
+            
+            .agencies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .google-form-iframe {
+                height: 600px;
+            }
+            
+            .cta-box {
+                padding: var(--spacing-6) var(--spacing-4);
+            }
+            
+            .cta-box h3 {
+                font-size: var(--font-size-xl);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-premium h1 {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .google-form-iframe {
+                height: 550px;
+            }
+            
+        }
+        
+        /* ============================================
+           UTILIDADES
+           ============================================ */
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: var(--spacing-2); }
+        .mt-2 { margin-top: var(--spacing-4); }
+        .mt-3 { margin-top: var(--spacing-6); }
+        .mb-1 { margin-bottom: var(--spacing-2); }
+        .mb-2 { margin-bottom: var(--spacing-4); }
+        .mb-3 { margin-bottom: var(--spacing-6); }
+
+        
+    </style>
+</head>
+<body style="opacity: 0; animation: pageEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;">
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-premium" aria-labelledby="hero-title">
+            <div class="badge-premium">Canales de atención</div>
+            <h1 id="hero-title">Contáctanos</h1>
+            <p>Estamos aquí para ayudarle. Elija el canal que prefiera y nuestro equipo le atenderá con la mayor brevedad posible.</p>
+        </section>
+
+        <!-- Redes Sociales -->
+        <section aria-labelledby="social-title">
+            <h2 class="section-title" id="social-title">Canales digitales</h2>
+            <p class="section-subtitle">Síganos y manténgase informado</p>
+            
+            <div class="social-grid">
+                <a href="https://www.instagram.com/proezasrl/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="social-card"
+                   aria-label="Síguenos en Instagram @proezasrl">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </div>
+                    <div class="social-name">Instagram</div>
+                    <div class="social-user">@proezasrl</div>
+                </a>
+                
+                <a href="https://www.facebook.com/FINANCIERAPROEZASRL/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="social-card"
+                   aria-label="Síguenos en Facebook Financiera Proeza">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="social-name">Facebook</div>
+                    <div class="social-user">Financiera Proeza</div>
+                </a>
+                
+                <a href="https://bo.linkedin.com/company/grupoproeza" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="social-card"
+                   aria-label="Conéctate con nosotros en LinkedIn Grupo Proeza">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </div>
+                    <div class="social-name">LinkedIn</div>
+                    <div class="social-user">Grupo Proeza</div>
+                </a>
+                
+                <a href="https://wa.me/59169417545?text=Hola%20Grupo%20Proeza%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="social-card"
+                   aria-label="Contáctanos por WhatsApp al +591 69417545">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="social-name">WhatsApp</div>
+                    <div class="social-user">+591 69417545</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Agencias con Tabs -->
+        <section aria-labelledby="agencies-title">
+            <h2 class="section-title" id="agencies-title">Nuestras agencias</h2>
+            <p class="section-subtitle">Seleccione una ciudad para ver los datos de contacto</p>
+
+            <div class="tabs-container">
+                <div class="tabs-header" id="tabsHeader" role="tablist" aria-label="Ciudades con agencias">
+                    <!-- Tabs generados dinámicamente -->
+                </div>
+                <div id="tabContent" role="region" aria-live="polite">
+                    <!-- Contenido dinámico -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA + Formulario -->
+        <section aria-labelledby="cta-title">
+            <div class="cta-box">
+                <h3 id="cta-title">¿Necesita atención personalizada?</h3>
+                <p>Complete el siguiente formulario y uno de nuestros asesores le contactará a la brevedad posible.</p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-loader" id="formLoader">
+                    <div class="form-loader-spinner"></div>
+                    <p>Cargando formulario...</p>
+                </div>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScF_uOU88c73dihtvg2ESpHZ0cgqAE7shu800FWpwebZC8Kyg/viewform?usp=publish-editor" 
+                    class="google-form-iframe" 
+                    title="Formulario de contacto Grupo Proeza"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                    loading="lazy"
+                    onload="document.getElementById('formLoader').style.display='none'">
+                    Cargando formulario...
+                </iframe>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: GESTIÓN DE AGENCIAS Y TABS
+ * Empresa: Grupo Proeza
+ * Versión: 2.0.0 - Enterprise Grade
+ * ============================================================
+ */
+
+const agenciasData = {
+    "Cochabamba": [
+        { 
+            nombre: "Agencia Norte", 
+            direccion: "Calle Intiraymi esq. Juan de la Rosa", 
+            telefono: "456 - 7890", 
+            whatsapp: "5914567890", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/JRsfqPN1DK3VkHH26" 
+        },
+        { 
+            nombre: "Agencia Tiquipaya", 
+            direccion: "Av. Reducto casi calle Beni", 
+            telefono: "694 - 17546", 
+            whatsapp: "59169417546", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/hNV9BGKdeFg75Kuf7" 
+        },
+        { 
+            nombre: "Agencia Punata", 
+            direccion: "Calle Sucre esq. Calle Ingavi", 
+            telefono: "694 - 17547", 
+            whatsapp: "59169417547", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/R8BNFExzTMycPqnD8" 
+        },
+        { 
+            nombre: "Agencia Siglo XX", 
+            direccion: "Calle Nicolas Medrano", 
+            telefono: "616 - 85674", 
+            whatsapp: "59161685674", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/zzn3UP63fD6sqURc6" 
+        },
+        { 
+            nombre: "Agencia Av.Reducto", 
+            direccion: "Calle Julio Rodriguez", 
+            telefono: "-", 
+            whatsapp: "-", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.google.com/?q=-17.339399,-66.222816" 
+        }
+
+    ],
+    "Santa Cruz": [
+        { 
+            nombre: "Agencia Piraí", 
+            direccion: "Av. Roque Aguilera entre Calle Pico Monte y Av. Piraí", 
+            telefono: "770 - 12980", 
+            whatsapp: "59177012980", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/FTrMj3bTaAyJXp2t5" 
+        }
+    ],
+    "La Paz": [
+        { 
+            nombre: "Agencia 16 de Julio", 
+            direccion: "Av. 16 de Julio esq. Av. Alfonso Ugarte", 
+            telefono: "694 - 18902", 
+            whatsapp: "59169418902", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/jb1CwG22FMuMB7P19" 
+        }
+    ],
+    "Oficina Corporativa Nacional": [
+        { 
+            nombre: "Oficina Corporativa Nacional", 
+            direccion: "Calle Pasos Kanki esq. Huallparimachi", 
+            telefono: "694 - 17545", 
+            whatsapp: "59169417545", 
+            horario: "Lun-Vie: 8:30 - 15:30", 
+            map_link: "https://maps.app.goo.gl/kDXnsSw6HFG4yVsL8" 
+        }
+    ]
+};
+
+const ICONS = {
+    location: `<svg class="agencia-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+    </svg>`,
+    phone: `<svg class="agencia-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>`,
+    clock: `<svg class="agencia-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+    </svg>`,
+    map: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+    </svg>`,
+    whatsapp: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>`
+};
+
+function sanitizeUrl(url) {
+    try {
+        const parsedUrl = new URL(url);
+        if (['http:', 'https:', 'mailto:', 'tel:'].includes(parsedUrl.protocol)) {
+            return parsedUrl.href;
+        }
+    } catch (e) {
+        console.warn('URL inválida:', url);
+    }
+    return '#';
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function renderAgencies(ciudad) {
+    const agencias = agenciasData[ciudad];
+    
+    if (!agencias || agencias.length === 0) {
+        return '<div class="text-center" style="padding: 2rem; color: var(--color-gray-400);">No hay información disponible para esta ubicación</div>';
+    }
+    
+    let html = `<div class="agencies-grid">`;
+    
+    agencias.forEach(ag => {
+        const safeName = escapeHtml(ag.nombre);
+        const safeAddress = escapeHtml(ag.direccion);
+        const safePhone = escapeHtml(ag.telefono);
+        const safeSchedule = escapeHtml(ag.horario);
+        const safeMapLink = sanitizeUrl(ag.map_link);
+        const safeWhatsapp = sanitizeUrl(`https://wa.me/${ag.whatsapp}?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20sus%20servicios`);
+        
+        html += `
+            <article class="agencia-card" aria-labelledby="agency-${ag.whatsapp}">
+                <h3 class="agencia-nombre" id="agency-${ag.whatsapp}">${safeName}</h3>
+                
+                <div class="agencia-info">
+                    ${ICONS.location}
+                    <div class="agencia-info-content">
+                        <span class="agencia-label">Dirección</span>
+                        ${safeAddress}
+                    </div>
+                </div>
+                
+                <div class="agencia-info">
+                    ${ICONS.phone}
+                    <div class="agencia-info-content">
+                        <span class="agencia-label">Teléfono</span>
+                        ${safePhone}
+                    </div>
+                </div>
+                
+                <div class="agencia-info">
+                    ${ICONS.clock}
+                    <div class="agencia-info-content">
+                        <span class="agencia-label">Horario</span>
+                        ${safeSchedule}
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="${safeMapLink}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-mapa"
+                       aria-label="Ver ubicación de ${safeName} en mapa">
+                        ${ICONS.map}
+                        <span>Ver mapa</span>
+                    </a>
+                    <a href="${safeWhatsapp}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-whatsapp"
+                       aria-label="Contactar ${safeName} por WhatsApp">
+                        ${ICONS.whatsapp}
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </article>
+        `;
+    });
+    
+    html += `</div>`;
+    
+    html += `
+        <div class="horario-card">
+            <h4>
+                ${ICONS.clock}
+                Horario de atención general
+            </h4>
+            <div class="horario-item">Lunes a Viernes</div>
+            <div class="horario-item"><strong>8:30 a.m. - 3:30 p.m.</strong></div>
+            <div class="horario-item" style="font-size: var(--font-size-sm); margin-top: var(--spacing-3); color: var(--color-gray-400);">
+                La atención puede variar según agencia o feriados nacionales
+            </div>
+        </div>
+    `;
+    
+    return html;
+}
+
+function initTabs() {
+    const cities = Object.keys(agenciasData);
+    const tabsHeader = document.getElementById('tabsHeader');
+    const tabContentDiv = document.getElementById('tabContent');
+    
+    if (!tabsHeader || !tabContentDiv || cities.length === 0) {
+        console.error('Error: Elementos de tabs no encontrados o no hay datos de ciudades');
+        return;
+    }
+    
+    tabsHeader.innerHTML = '';
+    
+    cities.forEach((city, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn';
+        btn.textContent = city;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+        btn.setAttribute('aria-controls', `panel-${index}`);
+        btn.setAttribute('id', `tab-${index}`);
+        btn.setAttribute('tabindex', index === 0 ? '0' : '-1');
+        
+        if (index === 0) {
+            btn.classList.add('active');
+        }
+        
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+                b.setAttribute('tabindex', '-1');
+            });
+            
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            btn.setAttribute('tabindex', '0');
+            
+            const contentHtml = renderAgencies(city);
+            tabContentDiv.innerHTML = contentHtml;
+            tabContentDiv.setAttribute('aria-labelledby', `tab-${index}`);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'tab_click', {
+                    'event_category': 'Agencias',
+                    'event_label': city
+                });
+            }
+        });
+        
+        btn.addEventListener('keydown', (e) => {
+            let newIndex = index;
+            
+            if (e.key === 'ArrowRight') {
+                newIndex = (index + 1) % cities.length;
+            } else if (e.key === 'ArrowLeft') {
+                newIndex = (index - 1 + cities.length) % cities.length;
+            } else if (e.key === 'Home') {
+                newIndex = 0;
+            } else if (e.key === 'End') {
+                newIndex = cities.length - 1;
+            } else {
+                return;
+            }
+            
+            e.preventDefault();
+            const newBtn = tabsHeader.children[newIndex];
+            newBtn.click();
+            newBtn.focus();
+        });
+        
+        tabsHeader.appendChild(btn);
+    });
+    
+    tabContentDiv.innerHTML = renderAgencies(cities[0]);
+    tabContentDiv.setAttribute('aria-labelledby', 'tab-0');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        initTabs();
+        console.log('✅ Sistema de agencias inicializado correctamente');
+    } catch (error) {
+        console.error('❌ Error al inicializar el sistema de agencias:', error);
+    }
+});
+
+if (typeof window !== 'undefined') {
+    window.ProezaAgencies = {
+        renderAgencies,
+        initTabs,
+        agenciasData
+    };
+}
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>

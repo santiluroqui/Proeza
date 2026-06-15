@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Productos financieros de Grupo Proeza. Créditos para mujeres emprendedoras, jóvenes, sector agropecuario, asalariados y más. Simulador de cuotas incluido.">
+    <meta name="keywords" content="créditos, préstamos, microfinanzas, Bolivia, Grupo Proeza, productos financieros">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Productos Financieros | Grupo Proeza">
+    <meta property="og:description" content="Créditos diseñados para impulsar tus proyectos. Simulador de cuotas incluido.">
+    <meta property="og:image" content="../assets/productos-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Productos Financieros | Grupo Proeza">
+    <meta property="twitter:description" content="Créditos diseñados para impulsar tus proyectos.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Productos Financieros | Grupo Proeza - Créditos y Simulador</title>
+    
+    <!-- Schema.org FinancialProduct -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Grupo Proeza",
+      "url": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Productos Financieros",
+        "itemListElement": [
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA MUJER AVANZA",
+            "description": "Crédito diseñado para mujeres emprendedoras",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "20000",
+              "currency": "BOB"
+            }
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA IMPULSO JOVEN",
+            "description": "Crédito para jóvenes entre 18 y 28 años",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "5000",
+              "currency": "BOB"
+            }
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA IMPACTO VERDE",
+            "description": "Financiamiento para actividades agrícolas sostenibles",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "25000",
+              "currency": "BOB"
+            }
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA EMPRENDE",
+            "description": "Crédito para emprendedores",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "10000",
+              "currency": "BOB"
+            }
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA RAÍCES FIRMES",
+            "description": "Financiamiento de mayor escala para negocios establecidos",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "30000",
+              "currency": "BOB"
+            }
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PROEZA ASALARIADO",
+            "description": "Soluciones financieras para personas bajo relación de dependencia",
+            "amount": {
+              "@type": "MonetaryAmount",
+              "value": "20000",
+              "currency": "BOB"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-primary-dark: #2E0A4A;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            
+            --color-success: #25D366;
+            --color-info: #4A90E2;
+            --color-warning: #FF9500;
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 8px 25px rgba(245, 197, 24, 0.4);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* ============================================
+           HERO SECTION - IGUALADO A CONTÁCTANOS
+           ============================================ */
+        .hero-premium {
+            text-align: center;
+            margin: 1rem auto 3rem auto;
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245,197,24,0.25);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-premium {
+            display: inline-block;
+            color: #F5C518;
+            background: rgba(245,197,24,0.12);
+            border: 1px solid rgba(245,197,24,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-premium h1 {
+            background: linear-gradient(135deg, #F5C518 0%, #FFE484 60%, #FFFFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-premium p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ============================================
+           FILTROS DE PRODUCTOS
+           ============================================ */
+        .filters-section {
+            margin: var(--spacing-10) 0 var(--spacing-8);
+            text-align: center;
+        }
+        
+        .filters-title {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-3);
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-3) var(--spacing-5);
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(245, 197, 24, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark);
+            border-color: transparent;
+            font-weight: 800;
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .filter-count {
+            background: rgba(46, 10, 74, 0.2);
+            color: inherit;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 800;
+        }
+        
+        .filter-btn.active .filter-count {
+            background: rgba(46, 10, 74, 0.3);
+        }
+        
+        /* ============================================
+           GRID DE PRODUCTOS
+           ============================================ */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .product-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-image-container {
+            position: relative;
+            height: auto;
+            aspect-ratio: 790 / 450;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: var(--spacing-5);
+            right: var(--spacing-5);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-weight: 900;
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .product-badge.destacado {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark);
+        }
+        
+        .product-badge.nuevo {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-primary-dark);
+        }
+        
+        .product-body {
+            padding: var(--spacing-6);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-2);
+            line-height: 1.3;
+        }
+        
+        .product-subtitle {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-4);
+            font-weight: 700;
+        }
+        
+        .product-description {
+        color: var(--color-gray-300);
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        margin-bottom: var(--spacing-5);
+        flex-grow: 1;
+        
+        /* Truncamiento multilinea - Versión moderna */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        
+        /* Propiedad estándar moderna (soportada desde 2023) */
+        line-clamp: 3;
+        }
+        
+        .product-features {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-5);
+            padding: var(--spacing-4);
+            background: rgba(245, 197, 24, 0.05);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+        }
+        
+        .product-feature {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .product-feature-label {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-1);
+            font-weight: 600;
+        }
+        
+        .product-feature-value {
+            color: var(--color-accent);
+            font-size: var(--font-size-base);
+            font-weight: 800;
+        }
+        
+        .product-sectors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-5);
+        }
+        
+        .sector-tag {
+            background: rgba(245, 197, 24, 0.12);
+            color: var(--color-accent);
+            padding: var(--spacing-1) var(--spacing-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            border: 1px solid rgba(245, 197, 24, 0.25);
+        }
+        
+        .btn-product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: var(--spacing-3) var(--spacing-6);
+            font-weight: 800;
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-family: inherit;
+            width: 100%;
+        }
+        
+        .btn-product:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(245, 197, 24, 0.5);
+            background: linear-gradient(135deg, #FFD700 0%, var(--color-accent) 100%);
+        }
+        
+        .btn-product svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-product:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           TABLA COMPARATIVA
+           ============================================ */
+        .comparison-section {
+            margin: var(--spacing-16) 0;
+        }
+        
+        .comparison-header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .comparison-header h2 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .comparison-header p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-base);
+        }
+        
+        .comparison-table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        .comparison-table thead {
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.15) 0%, rgba(245, 197, 24, 0.05) 100%);
+        }
+        
+        .comparison-table th {
+            padding: var(--spacing-5) var(--spacing-4);
+            text-align: left;
+            color: var(--color-accent);
+            font-weight: 800;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(245, 197, 24, 0.3);
+        }
+        
+        .comparison-table td {
+            padding: var(--spacing-4);
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            border-bottom: 1px solid rgba(245, 197, 24, 0.1);
+        }
+        
+        .comparison-table tbody tr {
+            transition: background var(--transition-fast);
+        }
+        
+        .comparison-table tbody tr:hover {
+            background: rgba(245, 197, 24, 0.05);
+        }
+        
+        .comparison-table .product-name-cell {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        /* ============================================
+        MODAL DE DETALLES
+        ============================================ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center; /* <--- AQUÍ ESTÁ EL CAMBIO */
+            justify-content: center;
+            padding: calc(var(--spacing-6) / 2) var(--spacing-4);
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1A0527 0%, #2E0A4A 100%);
+            border-radius: var(--radius-3xl);
+            width: min(100%, 900px);
+            max-width: 900px;
+            max-height: calc(100vh - 3rem);
+            overflow: hidden;
+            border: 2px solid rgba(245, 197, 24, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform var(--transition-base), opacity var(--transition-base);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            position: relative;
+            height: clamp(240px, 30vh, 420px);
+            overflow: hidden;
+            border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+        }
+
+        .modal-body {
+            padding: var(--spacing-8);
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-y: auto;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;  /* ← Cambiado de cover a contain */
+            object-position: center center;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-5);
+            right: var(--spacing-5);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(245, 197, 24, 0.5);
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: rotate(90deg);
+        }
+        
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .modal-body {
+            padding: var(--spacing-8);
+        }
+        
+        .modal-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .modal-description {
+            color: var(--color-gray-200);
+            font-size: var(--font-size-base);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .modal-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .modal-metric {
+            background: rgba(245, 197, 24, 0.08);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5);
+            text-align: center;
+        }
+        
+        .modal-metric-label {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-2);
+            font-weight: 700;
+        }
+        
+        .modal-metric-value {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 900;
+        }
+        
+        .modal-sectors {
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .modal-sectors-title {
+            color: var(--color-white);
+            font-size: var(--font-size-base);
+            font-weight: 800;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .modal-sectors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+        }
+        
+        .modal-sector-tag {
+            background: rgba(245, 197, 24, 0.15);
+            color: var(--color-accent);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            border: 1px solid rgba(245, 197, 24, 0.3);
+        }
+        
+        .modal-cta {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: var(--spacing-4) var(--spacing-6);
+            font-weight: 900;
+            font-size: var(--font-size-base);
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .modal-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 197, 24, 0.5);
+        }
+        
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .cta-section {
+            margin: var(--spacing-16) 0 var(--spacing-8);
+            text-align: center;
+            padding: var(--spacing-12) var(--spacing-6);
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.12) 0%, rgba(245, 197, 24, 0.05) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-3xl);
+            border: 1px solid rgba(245, 197, 24, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+            animation: pulse-bg 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .cta-section p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border-radius: 60px;
+            font-weight: 800;
+            padding: var(--spacing-4) var(--spacing-8);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            letter-spacing: 0.5px;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(245, 197, 24, 0.5);
+        }
+        
+        .btn-premium svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-premium:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-premium h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .hero-premium {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-premium h1 {
+                font-size: 2.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-6);
+            }
+            
+            .modal-header {
+                height: 200px;
+            }
+            
+            .modal-body {
+                padding: var(--spacing-6);
+            }
+            
+            .modal-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: var(--font-size-xs);
+            }
+            
+            .cta-section {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .cta-section h3 {
+                font-size: var(--font-size-xl);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-premium h1 {
+                font-size: 1.8rem;
+            }
+            
+            .product-features {
+                flex-direction: column;
+                gap: var(--spacing-3);
+            }
+        }
+        
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        @keyframes pageEnter {
+    from { 
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body style="opacity: 0; animation: pageEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;">
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-premium" aria-labelledby="hero-title">
+            <div class="badge-premium">Portafolio Institucional</div>
+            <h1 id="hero-title">Nuestros Productos</h1>
+            <p>Te ofrecemos préstamos diseñados para quienes sueñan en grande pero necesitan un impulso justo y accesible. Cada préstamo es una oportunidad para crecer, crear y transformar tu futuro.</p>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters-section" aria-labelledby="filters-title">
+            <div class="filters-title" id="filters-title">Filtrar por categoría</div>
+            <div class="filters-container" role="tablist" aria-label="Filtros de productos">
+                <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">
+                    Todos <span class="filter-count">6</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="mujer">
+                    Mujer <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="joven">
+                    Joven <span class="filter-count">1</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="productivo">
+                    Productivo <span class="filter-count">3</span>
+                </button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="asalariado">
+                    Asalariado <span class="filter-count">1</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <section aria-labelledby="products-title">
+            <h2 class="sr-only" id="products-title">Catálogo de Productos Financieros</h2>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se generan dinámicamente con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Tabla Comparativa -->
+        <section class="comparison-section" aria-labelledby="comparison-title">
+            <div class="comparison-header">
+                <h2 id="comparison-title">Comparativa de Productos</h2>
+                <p>Compare nuestras líneas de crédito y elija la que mejor se adapte a sus necesidades</p>
+            </div>
+            
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Monto Máximo</th>
+                            <th>Plazo</th>
+                            <th>Sectores</th>
+                            <th>Perfil</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody">
+                        <!-- Se genera dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="cta-content">
+                <h3 id="cta-title">¿Listo para dar el siguiente paso?</h3>
+                <p>Nuestros asesores están listos para ayudarle a elegir el producto ideal para sus necesidades. Solicite una asesoría personalizada sin compromiso.</p>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScF_uOU88c73dihtvg2ESpHZ0cgqAE7shu800FWpwebZC8Kyg/viewform?usp=header" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-premium">
+                    Solicitar Asesoría Gratuita
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     MODAL DE DETALLES (Se mantiene aquí porque es específico de esta página)
+     ============================================ -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <div class="modal-header">
+            <img src="" alt="" class="modal-image" id="modalImage">
+            <button class="modal-close" aria-label="Cerrar modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            
+            <div class="modal-metrics">
+                <div class="modal-metric">
+                    <div class="modal-metric-label">Plazo</div>
+                    <div class="modal-metric-value" id="modalPlazo"></div>
+                </div>
+                <div class="modal-metric">
+                    <div class="modal-metric-label">Monto Máximo</div>
+                    <div class="modal-metric-value" id="modalMonto"></div>
+                </div>
+            </div>
+            
+            <div class="modal-sectors">
+                <div class="modal-sectors-title">Sectores Autorizados</div>
+                <div class="modal-sectors-list" id="modalSectors"></div>
+            </div>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScF_uOU88c73dihtvg2ESpHZ0cgqAE7shu800FWpwebZC8Kyg/viewform?usp=header" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="modal-cta">
+                Solicitar Asesoría para este Crédito
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: PRODUCTOS - ENTERPRISE GRADE
+ * Empresa: Grupo Proeza
+ * Versión: 2.1.0
+ * ============================================================
+ */
+
+// Datos de productos reales
+const productosData = [
+    {
+        id: 1,
+        nombre: "PROEZA MUJER AVANZA",
+        imagen: "../assets/mujer2.png",
+        plazo: "6 – 24 meses",
+        monto: "Bs. 20,000",
+        montoNumero: 20000,
+        descripcion: "Es un programa diseñado especialmente para apoyar a mujeres emprendedoras, brindándoles acceso a créditos oportunos y rápidos que les permitan impulsar sus negocios y proyectos personales. Con este producto buscamos ofrecer soluciones financieras ágiles, confiables y adaptadas a las necesidades del sector femenino, fomentando su crecimiento económico y fortaleciendo su independencia.",
+        sectores: ["Comercial", "Servicios", "Productivo"],
+        badge: "DESTACADO",
+        categoria: "mujer",
+        perfil: "Mujeres emprendedoras"
+    },
+    {
+        id: 2,
+        nombre: "PROEZA IMPULSO JOVEN",
+        imagen: "../assets/impulsojoven.png",
+        plazo: "6 – 10 meses",
+        monto: "Bs. 5,000",
+        montoNumero: 5000,
+        descripcion: "Proeza Impulso Joven es un producto crediticio diseñado especialmente para jóvenes entre 18 a 28 años, pensado para acompañarlos en sus primeros pasos hacia la independencia financiera y el desarrollo de sus proyectos personales o profesionales.",
+        sectores: ["Servicios", "Comercial", "Productivo"],
+        badge: "NUEVO",
+        categoria: "joven",
+        perfil: "Jóvenes 18-28 años"
+    },
+    {
+        id: 3,
+        nombre: "PROEZA IMPACTO VERDE",
+        imagen: "../assets/impactoverde.png",
+        plazo: "6 – 24 meses",
+        monto: "Bs. 25,000",
+        montoNumero: 25000,
+        descripcion: "Otorgar financiamiento al sector productivo a través de productores agropecuarios para el desarrollo y fortalecimiento de actividades agrícolas y pecuarias sostenibles, promoviendo prácticas productivas responsables con el medio ambiente, el uso eficiente de los recursos naturales y la mejora de la productividad e ingresos del sector rural.",
+        sectores: ["Productivo"],
+        badge: "NUEVO",
+        categoria: "productivo",
+        perfil: "Productores agropecuarios"
+    },
+    {
+        id: 4,
+        nombre: "PROEZA EMPRENDE",
+        imagen: "../assets/emprende2.png",
+        plazo: "6 – 12 meses",
+        monto: "Bs. 10,000",
+        montoNumero: 10000,
+        descripcion: "Financiar a emprendedores para iniciar, consolidar o expandir sus negocios, fortaleciendo la actividad productiva, la generación de ingresos y la sostenibilidad de los emprendimientos. El producto busca promover la inclusión financiera y la innovación económica, especialmente en segmentos con acceso limitado para emprendedores que se encuentran en los 28 y 38 años.",
+        sectores: ["Comercial", "Servicios", "Productivo"],
+        badge: "NUEVO",
+        categoria: "productivo",
+        perfil: "Emprendedores 28-38 años"
+    },
+    {
+        id: 5,
+        nombre: "PROEZA RAÍCES FIRMES",
+        imagen: "../assets/raicesfirmes.png",
+        plazo: "6 – 24 meses",
+        monto: "Bs. 30,000",
+        montoNumero: 30000,
+        descripcion: "Brindar soluciones de financiamiento de mayor escala para individuos y empresas con una base económica sólida. El objetivo es potenciar negocios ya establecidos que requieren capital para proyectos de gran envergadura, optimización de operaciones o adquisición de activos fijos de alto valor, apalancándose en la solidez patrimonial del cliente.",
+        sectores: ["Comercial", "Productivo", "Servicios"],
+        badge: "DESTACADO",
+        categoria: "productivo",
+        perfil: "Negocios establecidos"
+    },
+    {
+        id: 6,
+        nombre: "PROEZA ASALARIADO",
+        imagen: "../assets/asalariado2.png",
+        plazo: "6 – 24 meses",
+        monto: "Bs. 20,000",
+        montoNumero: 20000,
+        descripcion: "Brindar soluciones financieras a personas bajo relación de dependencia de forma formal o informal para cubrir necesidades personales, de vivienda o consumo, fomentando la estabilidad financiera y la mejora de la calidad de vida.",
+        sectores: ["Dependiente"],
+        badge: "NUEVO",
+        categoria: "asalariado",
+        perfil: "Trabajadores dependientes"
+    }
+];
+
+/**
+ * Escapa HTML para prevenir XSS
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+/**
+ * Formatea número como moneda boliviana
+ */
+function formatCurrency(amount) {
+    return amount.toLocaleString('es-BO');
+}
+
+/**
+ * Renderiza una tarjeta de producto
+ */
+function renderProductCard(producto) {
+    const safeName = escapeHtml(producto.nombre);
+    const safeDescription = escapeHtml(producto.descripcion);
+    const badgeClass = producto.badge === 'DESTACADO' ? 'destacado' : 'nuevo';
+    
+    const sectoresHtml = producto.sectores.map(s => 
+        `<span class="sector-tag">${escapeHtml(s)}</span>`
+    ).join('');
+    
+    return `
+        <article class="product-card" data-categoria="${producto.categoria}" aria-labelledby="product-${producto.id}">
+            <div class="product-image-container">
+                <img src="${producto.imagen}" alt="${safeName}" class="product-image" loading="lazy">
+                <div class="product-badge ${badgeClass}">${producto.badge}</div>
+            </div>
+            <div class="product-body">
+                <h3 class="product-title" id="product-${producto.id}">${safeName}</h3>
+                <div class="product-subtitle">Línea Especializada</div>
+                <p class="product-description">${safeDescription}</p>
+                
+                <div class="product-features">
+                    <div class="product-feature">
+                        <div class="product-feature-label">Plazo</div>
+                        <div class="product-feature-value">${escapeHtml(producto.plazo)}</div>
+                    </div>
+                    <div class="product-feature">
+                        <div class="product-feature-label">Monto Máx.</div>
+                        <div class="product-feature-value">${escapeHtml(producto.monto)}</div>
+                    </div>
+                </div>
+                
+                <div class="product-sectors">
+                    ${sectoresHtml}
+                </div>
+                
+                <button class="btn-product" onclick="openProductModal(${producto.id})" aria-label="Ver información completa de ${safeName}">
+                    Ver información completa
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </article>
+    `;
+}
+
+/**
+ * Renderiza todos los productos con filtro opcional
+ */
+function renderProducts(filter = 'all') {
+    const grid = document.getElementById('productsGrid');
+    if (!grid) return;
+    
+    const filtered = filter === 'all' 
+        ? productosData 
+        : productosData.filter(p => p.categoria === filter);
+    
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--color-gray-400);">
+                <p>No hay productos disponibles para este filtro.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = filtered.map(renderProductCard).join('');
+    
+    // Animación de entrada
+    observeProducts();
+}
+
+/**
+ * Observer para animación de entrada
+ */
+function observeProducts() {
+    const cards = document.querySelectorAll('.product-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    cards.forEach(card => observer.observe(card));
+}
+
+/**
+ * Inicializa los filtros
+ */
+function initFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            
+            const filter = btn.dataset.filter;
+            renderProducts(filter);
+        });
+    });
+}
+
+/**
+ * Abre el modal de detalles del producto
+ */
+function openProductModal(productId) {
+    const producto = productosData.find(p => p.id === productId);
+    if (!producto) return;
+    
+    const modal = document.getElementById('productModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalPlazo = document.getElementById('modalPlazo');
+    const modalMonto = document.getElementById('modalMonto');
+    const modalSectors = document.getElementById('modalSectors');
+    
+    modalImage.src = producto.imagen;
+    modalImage.alt = producto.nombre;
+    modalTitle.textContent = producto.nombre;
+    modalDescription.textContent = producto.descripcion;
+    modalPlazo.textContent = producto.plazo;
+    modalMonto.textContent = producto.monto;
+    
+    modalSectors.innerHTML = producto.sectores.map(s => 
+        `<span class="modal-sector-tag">${escapeHtml(s)}</span>`
+    ).join('');
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Focus trap
+    setTimeout(() => {
+        modal.querySelector('.modal-close').focus();
+    }, 100);
+}
+
+/**
+ * Cierra el modal
+ */
+function closeProductModal() {
+    const modal = document.getElementById('productModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+/**
+ * Inicializa el modal
+ */
+function initModal() {
+    const modal = document.getElementById('productModal');
+    const closeBtn = modal.querySelector('.modal-close');
+    
+    closeBtn.addEventListener('click', closeProductModal);
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProductModal();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeProductModal();
+        }
+    });
+}
+
+/**
+ * Renderiza la tabla comparativa
+ */
+function renderComparisonTable() {
+    const tbody = document.getElementById('comparisonTableBody');
+    if (!tbody) return;
+    
+    tbody.innerHTML = productosData.map(p => `
+        <tr>
+            <td class="product-name-cell">${escapeHtml(p.nombre)}</td>
+            <td>${escapeHtml(p.monto)}</td>
+            <td>${escapeHtml(p.plazo)}</td>
+            <td>${p.sectores.map(s => escapeHtml(s)).join(', ')}</td>
+            <td>${escapeHtml(p.perfil)}</td>
+        </tr>
+    `).join('');
+}
+
+/**
+ * Inicialización general
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        renderProducts('all');
+        initFilters();
+        initModal();
+        renderComparisonTable();
+        
+        console.log('✅ Sistema de productos inicializado correctamente');
+        console.log(`📦 Total de productos cargados: ${productosData.length}`);
+    } catch (error) {
+        console.error('❌ Error al inicializar productos:', error);
+    }
+});
+
+// Exponer funciones globalmente
+if (typeof window !== 'undefined') {
+    window.ProezaProducts = {
+        renderProducts,
+        openProductModal,
+        closeProductModal,
+        productosData
+    };
+}
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>

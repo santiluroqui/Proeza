@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conozca Grupo Proeza - Más de 9 años transformando sueños en Bolivia. Misión, visión, valores y equipo directivo comprometido con la inclusión financiera.">
+    <meta name="keywords" content="Grupo Proeza, nosotros, misión, visión, valores, equipo, historia, Bolivia, microfinanzas">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nosotros | Grupo Proeza - Más de 9 años transformando sueños">
+    <meta property="og:description" content="Conozca nuestra historia, misión, visión y el equipo directivo comprometido con la inclusión financiera en Bolivia.">
+    <meta property="og:image" content="../assets/inicio1.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Nosotros | Grupo Proeza">
+    <meta property="twitter:description" content="Más de 9 años transformando sueños en Bolivia.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Nosotros | Grupo Proeza - Más de 9 años transformando sueños en Bolivia</title>
+    
+    <!-- Schema.org Organization con miembros -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Grupo Proeza",
+      "image": "../assets/logo.png",
+      "url": "https://proezagit-miqdpnnwmtkhorvp9fdxeh.streamlit.app/",
+      "telephone": "+59169417545",
+      "foundingDate": "2019-06-24",
+      "description": "Grupo Proeza S.R.L. fue constituida el 24 de junio de 2019 en Cochabamba, Bolivia. Ofrecemos soluciones financieras rápidas y accesibles para emprendedores.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Pasos Kanki esq. Huallparimachi",
+        "addressLocality": "Cochabamba",
+        "addressCountry": "BO"
+      },
+      "areaServed": ["Cochabamba", "Santa Cruz", "La Paz"],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Luis Alejandro Arze Rico",
+          "jobTitle": "Gerencia General / CEO"
+        },
+        {
+          "@type": "Person",
+          "name": "Juan Pablo Valverde Zenteno",
+          "jobTitle": "Gerencia Financiera y de Riesgo Integral"
+        },
+        {
+          "@type": "Person",
+          "name": "Teresa Claudia Alba Miranda",
+          "jobTitle": "Gerencia Legal"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/FINANCIERAPROEZASRL/",
+        "https://www.instagram.com/proezasrl/",
+        "https://bo.linkedin.com/company/grupoproeza"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-primary-dark: #2E0A4A;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.6rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.35);
+            --shadow-accent: 0 8px 25px rgba(245, 197, 24, 0.4);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* ============================================
+           HERO SECTION - IGUALADO A CONTÁCTANOS
+           ============================================ */
+        .nosotros-hero {
+            text-align: center;
+            margin: 1rem auto 3rem auto;
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245,197,24,0.25);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nosotros-eyebrow {
+            display: inline-block;
+            color: #F5C518;
+            background: rgba(245,197,24,0.12);
+            border: 1px solid rgba(245,197,24,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nosotros-hero h1 {
+            background: linear-gradient(135deg, #F5C518 0%, #FFE484 60%, #FFFFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nosotros-hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ============================================
+           SECCIONES
+           ============================================ */
+        .section-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: var(--spacing-12) 0 var(--spacing-3);
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-8);
+            font-size: var(--font-size-base);
+        }
+        
+        /* ============================================
+           MISIÓN Y VISIÓN
+           ============================================ */
+        .mision-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .mision-card, .vision-card {
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-10) var(--spacing-8);
+            height: 100%;
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .mision-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 0;
+            transition: background var(--transition-base);
+        }
+        
+        .mision-card:hover::before, .vision-card:hover::before {
+            background: rgba(0, 0, 0, 0.55);
+        }
+        
+        .mision-card > *, .vision-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mision-card:hover, .vision-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mision-card h3, .vision-card h3 {
+            color: var(--color-accent);
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .mision-card p, .vision-card p {
+            color: var(--color-gray-100);
+            line-height: 1.8;
+            font-size: var(--font-size-base);
+        }
+        
+        /* ============================================
+           ESTADÍSTICAS
+           ============================================ */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-8) 0 var(--spacing-12);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            transform: scaleX(0);
+            transition: transform var(--transition-slow);
+        }
+        
+        .stat-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 197, 24, 0.5);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-number {
+            font-size: var(--font-size-5xl);
+            font-weight: 800;
+            color: var(--color-accent);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .stat-label {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-sm);
+            letter-spacing: 0.3px;
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           HISTORIA Y VALORES
+           ============================================ */
+        .historia-valores-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+        }
+        
+        .historia-section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .historia-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46,10,74,0.85) 0%, rgba(58,15,95,0.90) 100%);
+            z-index: 0;
+        }
+        
+        .historia-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .historia-section h3 {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-5);
+            text-align: left;
+        }
+        
+        .historia-text {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .historia-text strong {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .valores-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+        }
+        
+        .valores-section h3 {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            margin-bottom: var(--spacing-5);
+            text-align: left;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-4);
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 130px;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 197, 24, 0.35);
+            background: rgba(245, 197, 24, 0.05);
+        }
+        
+        .value-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .value-desc {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            line-height: 1.4;
+        }
+        
+        /* ============================================
+           LÍNEA DE TIEMPO
+           ============================================ */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: var(--spacing-8) auto;
+            padding: var(--spacing-4);
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--color-accent), rgba(245, 197, 24, 0.2));
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-8);
+            position: relative;
+            transition: all var(--transition-base);
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(8px);
+        }
+        
+        .timeline-item.visible:hover {
+            transform: translateX(8px);
+        }
+        
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            color: var(--color-primary-dark);
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-base);
+            z-index: 1;
+            border: 4px solid var(--color-primary-dark);
+        }
+        
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.08);
+            box-shadow: 0 15px 30px rgba(245, 197, 24, 0.4);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            margin-left: var(--spacing-6);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: var(--spacing-6) var(--spacing-8);
+            border-radius: var(--radius-xl);
+            border-left: 4px solid var(--color-accent);
+            transition: all var(--transition-base);
+        }
+        
+        .timeline-item:hover .timeline-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateX(4px);
+        }
+        
+        .timeline-year {
+            font-size: var(--font-size-lg);
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-1);
+            letter-spacing: -0.3px;
+        }
+        
+        .timeline-title {
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .timeline-desc {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* ============================================
+           EQUIPO (ORGANIGRAMA)
+           ============================================ */
+        .team-section {
+            margin: var(--spacing-12) 0;
+        }
+        
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-10);
+            margin: var(--spacing-8) 0;
+            position: relative;
+        }
+        
+        .org-level {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-6);
+            flex-wrap: wrap;
+            position: relative;
+            width: 100%;
+        }
+        
+        .org-level:not(:first-child)::before {
+            content: '';
+            position: absolute;
+            top: calc(-1 * var(--spacing-10) / 2);
+            left: 50%;
+            width: 2px;
+            height: calc(var(--spacing-10) / 2);
+            background: linear-gradient(to bottom, var(--color-accent), rgba(245, 197, 24, 0.3));
+            transform: translateX(-50%);
+        }
+        
+        .org-level.multiple::after {
+            content: '';
+            position: absolute;
+            top: calc(-1 * var(--spacing-10) / 2);
+            left: 50%;
+            width: 2px;
+            height: calc(var(--spacing-10) / 2);
+            background: var(--color-accent);
+            transform: translateX(-50%);
+        }
+        
+        .team-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-3xl);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(245, 197, 24, 0.25);
+            cursor: default;
+            width: 280px;
+            position: relative;
+        }
+        
+        .team-card.ceo {
+            width: 320px;
+            border-color: var(--color-accent);
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .team-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--spacing-5);
+            border: 3px solid var(--color-accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: block;
+            transition: transform var(--transition-base);
+        }
+        
+        .team-card:hover .team-avatar {
+            transform: scale(1.05);
+        }
+        
+        .team-avatar-placeholder {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5B2A86 0%, var(--color-primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-5);
+            color: var(--color-accent);
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            border: 3px solid var(--color-accent);
+        }
+        
+        .team-name {
+            font-size: var(--font-size-lg);
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-1);
+            line-height: 1.3;
+        }
+        
+        .team-position {
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            color: var(--color-gray-200);
+            margin-bottom: var(--spacing-4);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        
+        .team-divider {
+            width: 50px;
+            height: 2px;
+            background: rgba(245, 197, 24, 0.4);
+            margin: var(--spacing-4) auto;
+        }
+        
+        .team-bio {
+            font-size: var(--font-size-xs);
+            color: var(--color-gray-400);
+            line-height: 1.6;
+            margin-top: var(--spacing-2);
+        }
+        
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .cta-section {
+            text-align: center;
+            margin: var(--spacing-16) 0 var(--spacing-8);
+            padding: var(--spacing-12) var(--spacing-6);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 197, 24, 0.28);
+            border-radius: var(--radius-3xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+            animation: pulse-bg 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .cta-section p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border-radius: 60px;
+            font-weight: 900;
+            padding: var(--spacing-4) var(--spacing-8);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            letter-spacing: 0.5px;
+            border: none;
+            font-family: inherit;
+            min-height: 54px;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(245, 197, 24, 0.5);
+        }
+        
+        .btn-premium svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-premium:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .nosotros-hero h1 {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .mision-vision-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .historia-valores-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-card {
+                width: 260px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .nosotros-hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nosotros-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .mision-card, .vision-card {
+                padding: var(--spacing-6);
+                min-height: 260px;
+            }
+            
+            .mision-card h3, .vision-card h3 {
+                font-size: var(--font-size-xl);
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container::before {
+                left: 40px;
+            }
+            
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                font-size: var(--font-size-base);
+            }
+            
+            .timeline-content {
+                margin-left: var(--spacing-4);
+                padding: var(--spacing-4) var(--spacing-5);
+            }
+            
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-card {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .team-avatar, .team-avatar-placeholder {
+                width: 100px;
+                height: 100px;
+                font-size: var(--font-size-2xl);
+            }
+            
+            .cta-section {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .cta-section h3 {
+                font-size: var(--font-size-xl);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nosotros-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: var(--font-size-3xl);
+            }
+        }
+        
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="nosotros-hero fade-in" aria-labelledby="hero-title">
+            <div class="nosotros-eyebrow">Conozca nuestra institución</div>
+            <h1 id="hero-title">Nosotros</h1>
+            <p>En PROEZA creemos que cada sueño merece una oportunidad. Desde 2017 trabajamos por la inclusión financiera en Bolivia, acercando microcréditos accesibles, rápidos y humanos a quienes no encuentran apoyo en la banca tradicional.</p>
+        </section>
+
+        <!-- Misión y Visión -->
+        <section class="fade-in" aria-labelledby="mision-vision-title">
+            <h2 class="sr-only" id="mision-vision-title">Misión y Visión</h2>
+            
+            <div class="mision-vision-grid">
+                <div class="mision-card" style="background-image: url('../assets/mision_bg.png');">
+                    <h3>Misión</h3>
+                    <p>Ofrecer Soluciones Rápidas y Accesibles que impulsen los Emprendimientos de Nuestros Clientes, mediante una Gestión Responsable, Ágil y No Tradicional.</p>
+                </div>
+                
+                <div class="vision-card" style="background-image: url('../assets/vision_bg.png');">
+                    <h3>Visión</h3>
+                    <p>Tender un Puente de Inclusión Financiera y Empoderamiento Económico que conecte los Sueños de nuestros Clientes con la realización de sus Logros.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estadísticas -->
+        <section class="fade-in" aria-labelledby="stats-title">
+            <h2 class="section-title" id="stats-title">Proeza en cifras</h2>
+            <p class="section-subtitle">Resultados que respaldan nuestra gestión</p>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number"><span class="counter" data-target="9">0</span>+</div>
+                    <div class="stat-label">Años de trayectoria</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="counter" data-target="7">0</span>+</div>
+                    <div class="stat-label">Agencias a nivel nacional</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="counter" data-target="3650">0</span>+</div>
+                    <div class="stat-label">Clientes satisfechos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="counter" data-target="3">0</span></div>
+                    <div class="stat-label">Ciudades con Presencia Proeza</div>
+                </div>
+            </div>
+        </section>
+
+       <!-- Historia y Valores -->
+<section class="fade-in" aria-labelledby="historia-title">
+    <div class="historia-valores-grid">
+        <div class="historia-section" style="background-image: url('../assets/historia2.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <h3 id="historia-title">Historia</h3>
+            <p class="historia-text"><strong>Grupo Proeza S.R.L.</strong> fue constituida el <strong>24 de junio de 2019</strong> en la ciudad de Cochabamba.</p>
+            <p class="historia-text">Nacimos con la visión de transformar el acceso al financiamiento en Bolivia, entendiendo que el potencial de un emprendedor es la verdadera medida de su solvencia. Hoy, con presencia en Cochabamba, Santa Cruz y La Paz, seguimos democratizando el capital y brindando oportunidades a quienes fueron excluidos del sistema financiero tradicional.</p>
+            <p class="historia-text">Nuestro compromiso es seguir creciendo junto a los bolivianos que sueñan y trabajan por un futuro mejor.</p>
+        </div>
+        
+        <div class="valores-section">
+            <h3>Valores corporativos</h3>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-title">Transparencia</div>
+                    <div class="value-desc">Información clara, honesta y sin comisiones ocultas</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">Cercanía</div>
+                    <div class="value-desc">Atención personalizada y humana en cada etapa</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">Innovación</div>
+                    <div class="value-desc">Soluciones financieras modernas y eficientes</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">Responsabilidad</div>
+                    <div class="value-desc">Análisis ético y sostenible para cada cliente</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">Inclusión</div>
+                    <div class="value-desc">Financiamiento accesible para todos los sectores</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">Excelencia</div>
+                    <div class="value-desc">Mejor experiencia financiera para nuestros clientes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Línea de Tiempo -->
+        <section class="fade-in" aria-labelledby="timeline-title">
+            <h2 class="section-title" id="timeline-title">Trayectoria institucional</h2>
+            <p class="section-subtitle">Construyendo el futuro financiero de Bolivia</p>
+            
+            <div class="timeline-container" role="list" aria-label="Línea de tiempo de Grupo Proeza">
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2019</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-title">Fundación</div>
+                        <div class="timeline-desc">Constitución de Grupo Proeza S.R.L. en Cochabamba, iniciando operaciones con una visión innovadora.</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2021</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-title">Expansión regional</div>
+                        <div class="timeline-desc">Apertura de nuevas agencias en Santa Cruz y La Paz, llevando nuestras soluciones a más bolivianos.</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2023</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-title">Modernización tecnológica</div>
+                        <div class="timeline-desc">Implementación del Sistema Integral PROEZA (SIP), optimizando procesos internos.</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">Consolidación nacional</div>
+                        <div class="timeline-desc">Alcanzamos 6 agencias a nivel nacional con una cartera en crecimiento exponencial.</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">Crecimiento sostenido</div>
+                        <div class="timeline-desc">La cartera de créditos supera expectativas.</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-icon" aria-hidden="true">2026</div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-title">Innovación continua</div>
+                        <div class="timeline-desc">Lanzamiento de nuevos productos financieros y expansión de nuestra presencia digital.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipo Directivo -->
+        <section class="team-section fade-in" aria-labelledby="team-title">
+            <h2 class="section-title" id="team-title">Conoce a nuestro equipo</h2>
+            <p class="section-subtitle">Profesionales comprometidos con su éxito financiero</p>
+            
+            <div class="org-chart">
+                <!-- Nivel 1: CEO -->
+                <div class="org-level">
+                    <div class="team-card ceo">
+                        <img src="../assets/luis_arze.png" alt="Luis Alejandro Arze Rico, Gerente General" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>LA</div>'">
+                        <div class="team-name">Luis Alejandro Arze Rico</div>
+                        <div class="team-position">Gerencia General / CEO</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Lidera la estrategia general de la organización, asegurando el cumplimiento de la misión y visión institucional.</div>
+                    </div>
+                </div>
+                
+                <!-- Nivel 2: Gerentes -->
+                <div class="org-level multiple">
+                    <div class="team-card">
+                        <img src="../assets/juan_valverde.png" alt="Juan Pablo Valverde Zenteno, Gerencia Financiera" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>JV</div>'">
+                        <div class="team-name">Juan Pablo Valverde Zenteno</div>
+                        <div class="team-position">Gerencia Financiera y de Riesgo Integral</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Responsable de la planificación financiera, gestión de riesgos y sostenibilidad económica.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="../assets/teresa_alba.png" alt="Teresa Claudia Alba Miranda, Gerencia Legal" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>TA</div>'">
+                        <div class="team-name">Teresa Claudia Alba Miranda</div>
+                        <div class="team-position">Gerencia Legal</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Asegura el cumplimiento normativo y legal, así como la protección jurídica de la institución.</div>
+                    </div>
+                </div>
+                
+                <!-- Nivel 3: Subgerentes (primera fila) -->
+                <div class="org-level multiple">
+                    <div class="team-card">
+                        <img src="../assets/brenda_gonzales.png" alt="Brenda Olivia Gonzales Anna, Subgerencia Comercial" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>BG</div>'">
+                        <div class="team-name">Brenda Olivia Gonzales Anna</div>
+                        <div class="team-position">Subgerencia Comercial</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Encargada de la expansión comercial, relaciones con clientes y desarrollo de nuevos negocios.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="../assets/ximena_medrano.png" alt="Ximena Yoana Medrano Fuentes, Subgerencia de Contabilidad" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>XM</div>'">
+                        <div class="team-name">Ximena Yoana Medrano Fuentes</div>
+                        <div class="team-position">Subgerencia de Contabilidad</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Supervisa la contabilidad, estados financieros y cumplimiento tributario.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="../assets/aricely_montoya.png" alt="Aricely Allison Montoya Andia, Subgerencia de Riesgo Crediticio" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>AM</div>'">
+                        <div class="team-name">Aricely Allison Montoya Andia</div>
+                        <div class="team-position">Subgerencia de Riesgo Crediticio</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Analiza y controla el riesgo crediticio, evaluando la viabilidad de los préstamos.</div>
+                    </div>
+                </div>
+                
+                <!-- Nivel 4: Subgerentes (segunda fila) -->
+                <div class="org-level multiple">
+                    <div class="team-card">
+                        <img src="../assets/elizabeth_calle.png" alt="Elizabeth Calle Coaquira, Subgerencia de Operaciones" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>EC</div>'">
+                        <div class="team-name">Elizabeth Calle Coaquira</div>
+                        <div class="team-position">Subgerencia de Operaciones</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Optimiza los procesos operativos y la gestión de cartera de créditos.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="../assets/roger_huarachí.png" alt="Roger Aldair Huarachi Tapia, Subgerencia de TI" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>RH</div>'">
+                        <div class="team-name">Roger Aldair Huarachi Tapia</div>
+                        <div class="team-position">Subgerencia de Tecnología de la Información</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Lidera la transformación digital, seguridad informática y plataformas tecnológicas.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <img src="../assets/martha_amador.png" alt="Martha Paola Amador Baya, Subgerencia de Talento Humano" class="team-avatar" loading="lazy" onerror="this.outerHTML='<div class=\'team-avatar-placeholder\'>MA</div>'">
+                        <div class="team-name">Martha Paola Amador Baya</div>
+                        <div class="team-position">Subgerencia de Talento Humano</div>
+                        <div class="team-divider"></div>
+                        <div class="team-bio">Gestiona el desarrollo del talento humano, cultura organizacional y bienestar laboral.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section fade-in" aria-labelledby="cta-title">
+            <div class="cta-content">
+                <h3 id="cta-title">¿Quieres ser parte del Equipo Proeza?</h3>
+                <p>Únete a nuestro equipo y ayúdanos a convertir sueños en realidad.</p>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3slpyOno5SUpJGxz5uEUE4zOxiC0MgWbv20zn0pg7R9LBvg/viewform?usp=header" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-premium">
+                    Solicitar información
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: PÁGINA NOSOTROS - ENTERPRISE GRADE
+ * Empresa: Grupo Proeza
+ * Versión: 2.1.0
+ * ============================================================
+ */
+
+/**
+ * Animación de contadores
+ */
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.dataset.target);
+                const duration = 2000;
+                const steps = 60;
+                const increment = target / steps;
+                let current = 0;
+                let step = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    step++;
+                    
+                    if (step >= steps) {
+                        counter.textContent = target.toLocaleString('es-BO');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString('es-BO');
+                    }
+                }, duration / steps);
+                
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+/**
+ * Timeline animations
+ */
+function initTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    timelineItems.forEach(item => observer.observe(item));
+}
+
+/**
+ * Fade-in animations
+ */
+function initFadeIn() {
+    const elements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    elements.forEach(el => observer.observe(el));
+}
+
+/**
+ * Inicialización
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        animateCounters();
+        initTimeline();
+        initFadeIn();
+        
+        console.log('✅ Página Nosotros inicializada correctamente');
+    } catch (error) {
+        console.error('❌ Error al inicializar la página:', error);
+    }
+});
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>

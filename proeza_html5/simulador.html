@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador de préstamos de Grupo Proeza. Calcule su cuota mensual, compare productos y visualice su cronograma de pagos.">
+    <meta name="keywords" content="simulador crédito, calculadora préstamo, cuota mensual, Grupo Proeza, Bolivia">
+    <meta name="author" content="Grupo Proeza">
+    <meta name="theme-color" content="#2E0A4A">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Simulador de Préstamos | Grupo Proeza">
+    <meta property="og:description" content="Calcule su cuota mensual y visualice su cronograma de pagos.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js - Librería profesional de gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <title>Simulador de Préstamos | Grupo Proeza</title>
+    
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --color-primary-dark: #250638;
+            --color-primary: #3A0F5F;
+            --color-primary-light: #4A1570;
+            
+            --color-accent: #F5C518;
+            --color-accent-light: #FFE484;
+            --color-accent-dark: #E0B000;
+            
+            --color-white: #FFFFFF;
+            --color-gray-50: rgba(255, 255, 255, 0.95);
+            --color-gray-100: rgba(255, 255, 255, 0.92);
+            --color-gray-200: rgba(255, 255, 255, 0.85);
+            --color-gray-300: rgba(255, 255, 255, 0.80);
+            --color-gray-400: rgba(255, 255, 255, 0.70);
+            --color-gray-500: rgba(255, 255, 255, 0.60);
+            
+            --color-success: #25D366;
+            --color-warning: #FF9500;
+            --color-info: #4A90E2;
+            
+            --font-family-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.6rem;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-3xl: 32px;
+            --radius-full: 999px;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 24px 55px rgba(0, 0, 0, 0.30);
+            --shadow-accent: 0 12px 30px rgba(245, 197, 24, 0.30);
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0.025) 100%);
+            --glass-border: rgba(245, 197, 24, 0.22);
+            --glass-blur: blur(12px);
+        }
+        
+        /* ============================================
+           RESET Y BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-dark) 100%);
+            font-family: var(--font-family-primary);
+            color: var(--color-gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero-simulador {
+            text-align: center;
+            margin: var(--spacing-8) auto var(--spacing-12);
+            padding: var(--spacing-10) var(--spacing-6);
+            max-width: 1120px;
+            border-radius: var(--radius-3xl);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(245, 197, 24, 0.28);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .badge-premium {
+            display: inline-block;
+            background: rgba(245, 197, 24, 0.13);
+            border: 1px solid rgba(245, 197, 24, 0.38);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-2) var(--spacing-5);
+            font-size: var(--font-size-xs);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-5);
+        }
+        
+        .hero-simulador h1 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-6xl);
+            font-weight: 950;
+            margin-bottom: var(--spacing-4);
+            line-height: 1.1;
+        }
+        
+        .hero-simulador p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-lg);
+            max-width: 780px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* ============================================
+           PANEL PRINCIPAL DEL SIMULADOR
+           ============================================ */
+        .simulator-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+        }
+        
+        .panel-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-3xl);
+            padding: var(--spacing-8);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .panel-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .panel-subtitle {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-6);
+            line-height: 1.6;
+        }
+        
+        /* ============================================
+           FORMULARIO DEL SIMULADOR
+           ============================================ */
+        .form-group {
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .form-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-accent);
+            font-size: var(--font-size-sm);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .form-label-value {
+            color: var(--color-white);
+            font-size: var(--font-size-lg);
+            font-weight: 800;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        
+        .form-select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-4) var(--spacing-5);
+            color: var(--color-white);
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23F5C518' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            background-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.1);
+        }
+        
+        .form-select option {
+            background: var(--color-primary-dark);
+            color: var(--color-white);
+            padding: var(--spacing-3);
+        }
+        
+        .product-chip {
+            display: inline-block;
+            background: rgba(245, 197, 24, 0.14);
+            color: var(--color-accent);
+            border: 1px solid rgba(245, 197, 24, 0.32);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 800;
+            margin: var(--spacing-3) 0 var(--spacing-5);
+        }
+        
+        /* Slider personalizado */
+        .slider-container {
+            position: relative;
+            padding: var(--spacing-2) 0;
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            margin-top: var(--spacing-2);
+            font-weight: 600;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(245, 197, 24, 0.5);
+            transition: all var(--transition-fast);
+            border: 3px solid var(--color-white);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 18px rgba(245, 197, 24, 0.7);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            cursor: pointer;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 4px 12px rgba(245, 197, 24, 0.5);
+        }
+        
+        /* ============================================
+           PANEL DE RESULTADOS
+           ============================================ */
+        .result-card {
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.20) 0%, rgba(245, 197, 24, 0.07) 100%);
+            border-radius: var(--radius-3xl);
+            padding: var(--spacing-8);
+            border: 1px solid rgba(245, 197, 24, 0.35);
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .result-label {
+            color: var(--color-gray-200);
+            font-size: var(--font-size-xs);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: var(--spacing-3);
+        }
+        
+        .result-value {
+            color: var(--color-accent);
+            font-size: var(--font-size-5xl);
+            font-weight: 950;
+            line-height: 1.1;
+            transition: all var(--transition-base);
+        }
+        
+        .result-value.updating {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(245, 197, 24, 0.6);
+        }
+        
+        .result-currency {
+            font-size: var(--font-size-2xl);
+            color: var(--color-gray-300);
+            margin-right: var(--spacing-2);
+            font-weight: 700;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(245, 197, 24, 0.18);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-5);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+        
+        .kpi-card:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(245, 197, 24, 0.35);
+            transform: translateY(-2px);
+        }
+        
+        .kpi-label {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 0.8px;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .kpi-value {
+            color: var(--color-accent);
+            font-size: var(--font-size-xl);
+            font-weight: 900;
+        }
+        
+        .kpi-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .warning-card {
+            background: rgba(245, 197, 24, 0.10);
+            border: 1px solid rgba(245, 197, 24, 0.25);
+            border-left: 5px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-4) var(--spacing-5);
+            margin-top: var(--spacing-4);
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            display: flex;
+            gap: var(--spacing-3);
+            align-items: flex-start;
+        }
+        
+        .warning-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--color-accent);
+            margin-top: 2px;
+        }
+        
+        /* ============================================
+           SECCIONES (CRONOGRAMA, GRÁFICO, FAQ)
+           ============================================ */
+        .section-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .section-title {
+            color: var(--color-accent);
+            font-size: var(--font-size-2xl);
+            font-weight: 900;
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .section-subtitle {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-sm);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ============================================
+           TABLA DE CRONOGRAMA
+           ============================================ */
+        .table-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .btn-export {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            background: rgba(245, 197, 24, 0.12);
+            color: var(--color-accent);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-2) var(--spacing-4);
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: inherit;
+        }
+        
+        .btn-export:hover {
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-export svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(245, 197, 24, 0.2);
+            background: rgba(0, 0, 0, 0.15);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+        
+        .schedule-table thead {
+            background: linear-gradient(135deg, rgba(245, 197, 24, 0.15) 0%, rgba(245, 197, 24, 0.05) 100%);
+        }
+        
+        .schedule-table th {
+            padding: var(--spacing-4) var(--spacing-5);
+            text-align: left;
+            color: var(--color-accent);
+            font-weight: 800;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(245, 197, 24, 0.3);
+        }
+        
+        .schedule-table td {
+            padding: var(--spacing-4) var(--spacing-5);
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            border-bottom: 1px solid rgba(245, 197, 24, 0.1);
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .schedule-table tbody tr {
+            transition: background var(--transition-fast);
+        }
+        
+        .schedule-table tbody tr:hover {
+            background: rgba(245, 197, 24, 0.05);
+        }
+        
+        .schedule-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .schedule-table .mes-cell {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        .schedule-table .cuota-cell {
+            color: var(--color-white);
+            font-weight: 700;
+        }
+        
+        .schedule-table .saldo-cell {
+            color: var(--color-gray-300);
+        }
+        
+        /* ============================================
+           GRÁFICO
+           ============================================ */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            padding: var(--spacing-4);
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+        }
+        
+        .chart-legend-custom {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-4);
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            color: var(--color-gray-300);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        /* ============================================
+           FAQ (ACCORDION)
+           ============================================ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-3);
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(245, 197, 24, 0.18);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(245, 197, 24, 0.35);
+        }
+        
+        .faq-item[open] {
+            background: rgba(245, 197, 24, 0.05);
+            border-color: rgba(245, 197, 24, 0.4);
+        }
+        
+        .faq-question {
+            padding: var(--spacing-4) var(--spacing-5);
+            color: var(--color-accent);
+            font-weight: 800;
+            font-size: var(--font-size-base);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-3);
+            transition: all var(--transition-fast);
+        }
+        
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+        
+        .faq-question::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23F5C518' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform var(--transition-base);
+        }
+        
+        .faq-item[open] .faq-question::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--spacing-5) var(--spacing-5);
+            color: var(--color-gray-200);
+            font-size: var(--font-size-sm);
+            line-height: 1.7;
+        }
+        
+        .faq-answer ul {
+            margin-top: var(--spacing-2);
+            padding-left: var(--spacing-5);
+        }
+        
+        .faq-answer li {
+            margin-bottom: var(--spacing-2);
+        }
+        
+        /* ============================================
+           CTA FINAL
+           ============================================ */
+        .cta-section {
+            text-align: center;
+            margin: var(--spacing-12) 0 var(--spacing-8);
+            padding: var(--spacing-12) var(--spacing-6);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(245, 197, 24, 0.28);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+            animation: pulse-bg 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h3 {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 60%, var(--color-white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-3xl);
+            font-weight: 950;
+            margin-bottom: var(--spacing-4);
+        }
+        
+        .cta-section p {
+            color: var(--color-gray-300);
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: var(--color-primary-dark) !important;
+            border-radius: 60px;
+            font-weight: 900;
+            padding: var(--spacing-4) var(--spacing-8);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-accent);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            letter-spacing: 0.5px;
+            border: none;
+            font-family: inherit;
+            min-height: 54px;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(245, 197, 24, 0.5);
+            background: linear-gradient(135deg, #FFD84D 0%, var(--color-accent) 100%);
+        }
+        
+        .btn-premium svg {
+            width: 18px;
+            height: 18px;
+            transition: transform var(--transition-base);
+        }
+        
+        .btn-premium:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .simulator-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-simulador h1 {
+                font-size: var(--font-size-4xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-4);
+            }
+            
+            .hero-simulador {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .hero-simulador h1 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .panel-card {
+                padding: var(--spacing-6);
+            }
+            
+            .result-value {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-card {
+                padding: var(--spacing-6);
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+            
+            .cta-section {
+                padding: var(--spacing-8) var(--spacing-4);
+            }
+            
+            .cta-section h3 {
+                font-size: var(--font-size-xl);
+            }
+            
+            .table-actions {
+                flex-direction: column;
+            }
+            
+            .btn-export {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-simulador h1 {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .result-value {
+                font-size: var(--font-size-3xl);
+            }
+        }
+        
+        /* ============================================
+           UTILIDADES
+           ============================================ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        /* ============================================
+           ANIMACIONES
+           ============================================ */
+        @keyframes pageEnter {
+    from { 
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body style="opacity: 0; animation: pageEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;">
+
+<!-- ============================================
+     CONTENEDOR DEL NAVBAR (Inyectado por navbar.js)
+     ============================================ -->
+<div id="navbar-container"></div>
+
+<!-- ============================================
+     CONTENIDO PRINCIPAL DE LA PÁGINA
+     ============================================ -->
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-simulador" aria-labelledby="hero-title">
+            <div class="badge-premium">Herramienta financiera</div>
+            <h1 id="hero-title">Simulador de Préstamos</h1>
+            <p>Calcule una estimación clara de su crédito antes de iniciar su solicitud. Compare monto, plazo, cuota mensual y cronograma de pagos.</p>
+        </section>
+
+        <!-- Panel Principal del Simulador -->
+        <section class="simulator-main" aria-labelledby="simulator-title">
+            <h2 id="simulator-title" class="sr-only">Configuración y resultados del simulador</h2>
+            
+            <!-- Panel Izquierdo: Configuración -->
+            <div class="panel-card">
+                <div class="panel-title">Configure su simulación</div>
+                <div class="panel-subtitle">
+                    Seleccione el producto, monto y plazo. La información generada es orientativa y permite tomar una mejor decisión antes de solicitar asesoría.
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="productoSelect">Producto financiero</label>
+                    <select class="form-select" id="productoSelect" aria-describedby="productDescription">
+                        <!-- Opciones generadas dinámicamente -->
+                    </select>
+                    <div class="product-chip" id="productDescription">Especial para mujeres emprendedoras</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="montoSlider">
+                        <span>Monto solicitado</span>
+                        <span class="form-label-value" id="montoDisplay">Bs. 1.000</span>
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="montoSlider" min="1000" max="20000" step="500" value="1000" aria-label="Monto del crédito">
+                        <div class="slider-labels">
+                            <span id="montoMin">Bs. 1.000</span>
+                            <span id="montoMax">Bs. 20.000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="plazoSlider">
+                        <span>Plazo</span>
+                        <span class="form-label-value" id="plazoDisplay">6 meses</span>
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="plazoSlider" min="6" max="24" step="1" value="6" aria-label="Plazo en meses">
+                        <div class="slider-labels">
+                            <span id="plazoMin">6 meses</span>
+                            <span id="plazoMax">24 meses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Panel Derecho: Resultados -->
+            <div>
+                <div class="result-card" aria-live="polite">
+                    <div class="result-label">Cuota mensual aproximada</div>
+                    <div class="result-value" id="cuotaMensual">
+                        <span class="result-currency">Bs.</span>
+                        <span id="cuotaValue">0</span>
+                    </div>
+                </div>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Total estimado</div>
+                        <div class="kpi-value" id="totalEstimado">Bs. 0</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Costo estimado</div>
+                        <div class="kpi-value" id="costoEstimado">Bs. 0</div>
+                    </div>
+                    <div class="kpi-card full-width">
+                        <div class="kpi-label">Plazo</div>
+                        <div class="kpi-value" id="plazoKpi">6 meses</div>
+                    </div>
+                </div>
+                
+                <div class="warning-card" role="note">
+                    <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <div>
+                        <strong>Nota importante:</strong> La simulación es referencial. La aprobación, tasa final, condiciones y cuota definitiva dependen de la evaluación crediticia y validación documental de Grupo Proeza.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cronograma de Pagos -->
+        <section class="section-card" aria-labelledby="cronograma-title">
+            <div class="section-header">
+                <h2 class="section-title" id="cronograma-title">Cronograma estimado de pagos</h2>
+                <p class="section-subtitle">Revise cómo se distribuye cada cuota y el saldo pendiente mes a mes.</p>
+            </div>
+            
+            <div class="table-actions">
+                <button class="btn-export" id="btnExportCSV" aria-label="Exportar cronograma a CSV">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Exportar CSV
+                </button>
+            </div>
+            
+            <div class="table-container">
+                <table class="schedule-table" id="scheduleTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mes</th>
+                            <th scope="col">Cuota (Bs)</th>
+                            <th scope="col">Saldo restante (Bs)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                        <!-- Filas generadas dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Gráfico de Evolución -->
+        <section class="section-card" aria-labelledby="grafico-title">
+            <div class="section-header">
+                <h2 class="section-title" id="grafico-title">Evolución del saldo</h2>
+                <p class="section-subtitle">Visualización del comportamiento estimado del saldo pendiente durante el plazo seleccionado.</p>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="saldoChart" aria-label="Gráfico de evolución del saldo"></canvas>
+            </div>
+            
+            <div class="chart-legend-custom">
+                <div class="legend-item">
+                    <span class="legend-dot" style="background: #F5C518;"></span>
+                    <span>Saldo restante</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot" style="background: rgba(245, 197, 24, 0.3);"></span>
+                    <span>Área de amortización</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-card" aria-labelledby="faq-title">
+            <div class="section-header">
+                <h2 class="section-title" id="faq-title">Preguntas frecuentes</h2>
+                <p class="section-subtitle">Información clave antes de iniciar su solicitud.</p>
+            </div>
+            
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">¿La cuota mostrada es definitiva?</summary>
+                    <div class="faq-answer">
+                        <p>No. Esta simulación es orientativa. La cuota final dependerá de la evaluación crediticia, la validación documental y las condiciones aprobadas para cada cliente.</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">¿Qué documentos necesito para solicitar un crédito?</summary>
+                    <div class="faq-answer">
+                        <p>Requisitos generales:</p>
+                        <ul>
+                            <li>Cédula de identidad vigente</li>
+                            <li>Comprobante de domicilio</li>
+                            <li>Respaldo de ingresos</li>
+                            <li>Referencias personales o comerciales</li>
+                            <li>Estado de cuenta, si corresponde</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuánto tiempo tarda la aprobación?</summary>
+                    <div class="faq-answer">
+                        <p>La aprobación puede tomar aproximadamente 3 días hábiles una vez presentada la documentación requerida.</p>
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">¿Puedo pagar antes del plazo establecido?</summary>
+                    <div class="faq-answer">
+                        <p>Sí. Puede consultar con su asesor la posibilidad de realizar pagos anticipados parciales o totales, según las condiciones vigentes del producto.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="cta-content">
+                <h3 id="cta-title">¿Desea continuar con su solicitud?</h3>
+                <p>Si la simulación se ajusta a sus necesidades, deje sus datos y un asesor de Grupo Proeza se comunicará con usted para brindarle atención personalizada.</p>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScF_uOU88c73dihtvg2ESpHZ0cgqAE7shu800FWpwebZC8Kyg/viewform?usp=publish-editor" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-premium">
+                    Solicitar asesoría financiera
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ============================================
+     CONTENEDOR DEL FOOTER (Inyectado por navbar.js)
+     ============================================ -->
+<div id="footer-container"></div>
+
+<!-- ============================================
+     SCRIPTS ESPECÍFICOS DE ESTA PÁGINA
+     ============================================ -->
+<script>
+/**
+ * ============================================================
+ * MÓDULO: SIMULADOR DE PRÉSTAMOS - ENTERPRISE GRADE
+ * Empresa: Grupo Proeza
+ * Versión: 2.1.0
+ * ============================================================
+ */
+
+// Datos de productos con factores reales
+const productosData = {
+    "PROEZA MUJER AVANZA": {
+        plazo_min: 6, plazo_max: 24,
+        monto_min: 1000, monto_max: 20000,
+        descripcion: "Especial para mujeres emprendedoras",
+        factor: 1.45
+    },
+    "PROEZA IMPULSO JOVEN": {
+        plazo_min: 6, plazo_max: 10,
+        monto_min: 1000, monto_max: 5000,
+        descripcion: "Para jóvenes de 18 a 28 años",
+        factor: 1.40
+    },
+    "PROEZA IMPACTO VERDE": {
+        plazo_min: 6, plazo_max: 24,
+        monto_min: 1000, monto_max: 25000,
+        descripcion: "Para productores agropecuarios sostenibles",
+        factor: 1.48
+    },
+    "PROEZA EMPRENDE": {
+        plazo_min: 6, plazo_max: 12,
+        monto_min: 1000, monto_max: 10000,
+        descripcion: "Para emprendedores de 28 a 38 años",
+        factor: 1.42
+    },
+    "PROEZA RAÍCES FIRMES": {
+        plazo_min: 6, plazo_max: 24,
+        monto_min: 5000, monto_max: 30000,
+        descripcion: "Para negocios establecidos",
+        factor: 1.50
+    },
+    "PROEZA ASALARIADO": {
+        plazo_min: 6, plazo_max: 24,
+        monto_min: 1000, monto_max: 20000,
+        descripcion: "Para personas con relación de dependencia",
+        factor: 1.44
+    }
+};
+
+// Estado actual del simulador
+let currentState = {
+    producto: "PROEZA MUJER AVANZA",
+    monto: 1000,
+    plazo: 6
+};
+
+// Instancia del gráfico
+let saldoChart = null;
+
+/**
+ * Formatea número al estilo boliviano (puntos para miles, coma para decimales)
+ */
+function formatoBoliviano(numero, decimales = 0) {
+    if (decimales === 0) {
+        return Math.round(numero).toLocaleString('es-BO');
+    } else {
+        return numero.toLocaleString('es-BO', {
+            minimumFractionDigits: decimales,
+            maximumFractionDigits: decimales
+        });
+    }
+}
+
+/**
+ * Inicializa el selector de productos
+ */
+function initProductSelector() {
+    const select = document.getElementById('productoSelect');
+    
+    Object.keys(productosData).forEach(nombre => {
+        const option = document.createElement('option');
+        option.value = nombre;
+        option.textContent = nombre;
+        select.appendChild(option);
+    });
+    
+    select.addEventListener('change', handleProductChange);
+}
+
+/**
+ * Maneja el cambio de producto
+ */
+function handleProductChange(e) {
+    const productoNombre = e.target.value;
+    const producto = productosData[productoNombre];
+    
+    currentState.producto = productoNombre;
+    
+    // Actualizar descripción
+    document.getElementById('productDescription').textContent = producto.descripcion;
+    
+    // Actualizar sliders con nuevos rangos
+    const montoSlider = document.getElementById('montoSlider');
+    const plazoSlider = document.getElementById('plazoSlider');
+    
+    montoSlider.min = producto.monto_min;
+    montoSlider.max = producto.monto_max;
+    montoSlider.value = producto.monto_min;
+    
+    plazoSlider.min = producto.plazo_min;
+    plazoSlider.max = producto.plazo_max;
+    plazoSlider.value = producto.plazo_min;
+    
+    // Actualizar labels
+    document.getElementById('montoMin').textContent = `Bs. ${formatoBoliviano(producto.monto_min)}`;
+    document.getElementById('montoMax').textContent = `Bs. ${formatoBoliviano(producto.monto_max)}`;
+    document.getElementById('plazoMin').textContent = `${producto.plazo_min} meses`;
+    document.getElementById('plazoMax').textContent = `${producto.plazo_max} meses`;
+    
+    // Actualizar estado
+    currentState.monto = producto.monto_min;
+    currentState.plazo = producto.plazo_min;
+    
+    // Recalcular
+    updateSimulator();
+}
+
+/**
+ * Inicializa los sliders
+ */
+function initSliders() {
+    const montoSlider = document.getElementById('montoSlider');
+    const plazoSlider = document.getElementById('plazoSlider');
+    
+    montoSlider.addEventListener('input', (e) => {
+        currentState.monto = parseInt(e.target.value);
+        document.getElementById('montoDisplay').textContent = `Bs. ${formatoBoliviano(currentState.monto)}`;
+        updateSimulator();
+    });
+    
+    plazoSlider.addEventListener('input', (e) => {
+        currentState.plazo = parseInt(e.target.value);
+        document.getElementById('plazoDisplay').textContent = `${currentState.plazo} meses`;
+        updateSimulator();
+    });
+}
+
+/**
+ * Calcula los valores del préstamo
+ */
+function calculateLoan() {
+    const producto = productosData[currentState.producto];
+    const factor = producto.factor;
+    const monto = currentState.monto;
+    const plazo = currentState.plazo;
+    
+    const cuotaMensual = (monto * (1 + (factor - 1) * (plazo / 24))) / plazo;
+    const totalEstimado = cuotaMensual * plazo;
+    const interesTotal = totalEstimado - monto;
+    
+    return {
+        cuotaMensual,
+        totalEstimado,
+        interesTotal,
+        factor
+    };
+}
+
+/**
+ * Genera el cronograma de pagos
+ */
+function generateSchedule() {
+    const producto = productosData[currentState.producto];
+    const factor = producto.factor;
+    const monto = currentState.monto;
+    const plazo = currentState.plazo;
+    
+    const { cuotaMensual } = calculateLoan();
+    
+    let saldo = monto;
+    const schedule = [];
+    
+    for (let mes = 1; mes <= plazo; mes++) {
+        const interesMensual = ((factor - 1) / plazo) * saldo;
+        let amortizacion = cuotaMensual - interesMensual;
+        
+        let cuotaAjustada = cuotaMensual;
+        
+        if (amortizacion > saldo) {
+            amortizacion = saldo;
+            cuotaAjustada = amortizacion + interesMensual;
+        }
+        
+        saldo = Math.max(saldo - amortizacion, 0);
+        
+        schedule.push({
+            mes: mes,
+            cuota: Math.round(cuotaAjustada * 100) / 100,
+            saldo: Math.round(saldo * 100) / 100
+        });
+    }
+    
+    return schedule;
+}
+
+/**
+ * Actualiza la tabla de cronograma
+ */
+function updateScheduleTable(schedule) {
+    const tbody = document.getElementById('scheduleBody');
+    
+    tbody.innerHTML = schedule.map(row => `
+        <tr>
+            <td class="mes-cell">${row.mes}</td>
+            <td class="cuota-cell">Bs. ${formatoBoliviano(row.cuota, 2)}</td>
+            <td class="saldo-cell">Bs. ${formatoBoliviano(row.saldo, 2)}</td>
+        </tr>
+    `).join('');
+}
+
+/**
+ * Actualiza el gráfico con Chart.js
+ */
+function updateChart(schedule) {
+    const ctx = document.getElementById('saldoChart').getContext('2d');
+    
+    const labels = schedule.map(row => `Mes ${row.mes}`);
+    const data = schedule.map(row => row.saldo);
+    
+    // Destruir gráfico anterior si existe
+    if (saldoChart) {
+        saldoChart.destroy();
+    }
+    
+    // Crear gradiente para el área
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(245, 197, 24, 0.4)');
+    gradient.addColorStop(1, 'rgba(245, 197, 24, 0.02)');
+    
+    saldoChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Saldo restante',
+                data: data,
+                borderColor: '#F5C518',
+                backgroundColor: gradient,
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#F5C518',
+                pointBorderColor: '#FFFFFF',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 8,
+                pointHoverBackgroundColor: '#FFE484',
+                pointHoverBorderColor: '#FFFFFF',
+                pointHoverBorderWidth: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(46, 10, 74, 0.95)',
+                    titleColor: '#F5C518',
+                    bodyColor: '#FFFFFF',
+                    borderColor: 'rgba(245, 197, 24, 0.5)',
+                    borderWidth: 1,
+                    cornerRadius: 12,
+                    padding: 12,
+                    titleFont: {
+                        size: 14,
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                        size: 13
+                    },
+                    callbacks: {
+                        title: function(context) {
+                            return context[0].label;
+                        },
+                        label: function(context) {
+                            return `Saldo: Bs. ${formatoBoliviano(context.parsed.y, 2)}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(245, 197, 24, 0.08)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        font: {
+                            size: 11,
+                            weight: '600'
+                        },
+                        maxRotation: 0,
+                        autoSkip: true,
+                        maxTicksLimit: 12
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(245, 197, 24, 0.08)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        font: {
+                            size: 11,
+                            weight: '600'
+                        },
+                        callback: function(value) {
+                            return 'Bs. ' + formatoBoliviano(value);
+                        }
+                    },
+                    beginAtZero: true
+                }
+            },
+            animation: {
+                duration: 800,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+}
+
+/**
+ * Actualiza los resultados con animación
+ */
+function updateResults() {
+    const { cuotaMensual, totalEstimado, interesTotal } = calculateLoan();
+    
+    // Animación del valor principal
+    const cuotaElement = document.getElementById('cuotaMensual');
+    cuotaElement.classList.add('updating');
+    setTimeout(() => {
+        cuotaElement.classList.remove('updating');
+    }, 300);
+    
+    // Actualizar valores con animación de conteo
+    animateValue('cuotaValue', cuotaMensual, 0);
+    document.getElementById('totalEstimado').textContent = `Bs. ${formatoBoliviano(totalEstimado)}`;
+    document.getElementById('costoEstimado').textContent = `Bs. ${formatoBoliviano(interesTotal)}`;
+    document.getElementById('plazoKpi').textContent = `${currentState.plazo} meses`;
+}
+
+/**
+ * Anima un valor numérico (efecto count-up)
+ */
+function animateValue(elementId, endValue, decimals = 0) {
+    const element = document.getElementById(elementId);
+    const startValue = parseFloat(element.textContent.replace(/[^0-9.-]+/g, '')) || 0;
+    const duration = 500;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentValue = startValue + (endValue - startValue) * easeOut;
+        
+        element.textContent = formatoBoliviano(currentValue, decimals);
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = formatoBoliviano(endValue, decimals);
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+/**
+ * Actualiza todo el simulador
+ */
+function updateSimulator() {
+    const schedule = generateSchedule();
+    updateResults();
+    updateScheduleTable(schedule);
+    updateChart(schedule);
+}
+
+/**
+ * Exporta el cronograma a CSV
+ */
+function exportToCSV() {
+    const schedule = generateSchedule();
+    const producto = currentState.producto;
+    
+    let csv = `Cronograma de Pagos - ${producto}\n`;
+    csv += `Monto: Bs. ${formatoBoliviano(currentState.monto)}\n`;
+    csv += `Plazo: ${currentState.plazo} meses\n\n`;
+    csv += 'Mes,Cuota (Bs),Saldo Restante (Bs)\n';
+    
+    schedule.forEach(row => {
+        csv += `${row.mes},${row.cuota.toFixed(2)},${row.saldo.toFixed(2)}\n`;
+    });
+    
+    // Descargar
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    link.setAttribute('href', url);
+    link.setAttribute('download', `cronograma_${producto.replace(/\s+/g, '_')}_${currentState.monto}_${currentState.plazo}m.csv`);
+    link.style.visibility = 'hidden';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+/**
+ * Inicializa la exportación CSV
+ */
+function initExport() {
+    document.getElementById('btnExportCSV').addEventListener('click', exportToCSV);
+}
+
+/**
+ * Inicialización general
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        initProductSelector();
+        initSliders();
+        initExport();
+        updateSimulator();
+        
+        console.log('✅ Simulador de préstamos inicializado correctamente');
+        console.log(`📊 Productos disponibles: ${Object.keys(productosData).length}`);
+    } catch (error) {
+        console.error('❌ Error al inicializar el simulador:', error);
+    }
+});
+
+// Exponer funciones globalmente para debugging
+if (typeof window !== 'undefined') {
+    window.ProezaSimulator = {
+        updateSimulator,
+        exportToCSV,
+        productosData,
+        currentState
+    };
+}
+</script>
+
+<!-- ============================================
+     SCRIPT QUE INYECTA NAVBAR Y FOOTER
+     ============================================ -->
+<script src="../components/navbar.js"></script>
+
+</body>
+</html>
