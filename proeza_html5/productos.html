@@ -1376,12 +1376,17 @@ function openProductModal(productId, botonElemento) {
     const modal = document.getElementById('productModal');
     const modalContent = modal.querySelector('.modal-content');
     
-    // Anulamos el centrado y calculamos la posición exacta del botón presionado
     if (botonElemento) {
-        modal.style.alignItems = 'flex-start';
-        const rect = botonElemento.getBoundingClientRect();
-        // Le damos un margen superior para que aparezca a la misma altura de tu vista
-        modalContent.style.marginTop = `${rect.top}px`;
+        // Buscamos la tarjeta entera para calcular su posición exacta
+        const tarjeta = botonElemento.closest('.product-card');
+        if (tarjeta) {
+            const rect = tarjeta.getBoundingClientRect();
+            modal.style.alignItems = 'flex-start';
+            
+            // Le damos la distancia exacta para que se dibuje encima de la tarjeta
+            // Usamos Math.max(20, ...) para dejar un pequeño margen y no se pegue al techo
+            modalContent.style.marginTop = `${Math.max(20, rect.top)}px`; 
+        }
     }
     
     const modalImage = document.getElementById('modalImage');
@@ -1402,8 +1407,13 @@ function openProductModal(productId, botonElemento) {
         `<span class="modal-sector-tag">${escapeHtml(s)}</span>`
     ).join('');
     
+    // Reseteamos el scroll de la ventana por si lo habías bajado antes
+    modal.scrollTop = 0;
+    
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    
+    // ❌ ELIMINAMOS la línea document.body.style.overflow = 'hidden'; 
+    // Esta era la culpable de que el celular hiciera el "salto" hacia arriba.
     
     // Focus trap
     setTimeout(() => {
@@ -1417,7 +1427,9 @@ function openProductModal(productId, botonElemento) {
 function closeProductModal() {
     const modal = document.getElementById('productModal');
     modal.classList.remove('active');
-    document.body.style.overflow = '';
+    
+    // ❌ ELIMINAMOS la línea document.body.style.overflow = '';
+    // Como ya no bloqueamos el scroll al abrir, tampoco necesitamos restaurarlo al cerrar.
 }
 
 /**
