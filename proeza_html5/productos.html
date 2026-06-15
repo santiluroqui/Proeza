@@ -1376,49 +1376,44 @@ function openProductModal(productId, botonElemento) {
     const modal = document.getElementById('productModal');
     const modalContent = modal.querySelector('.modal-content');
     
-    if (botonElemento) {
-        // Buscamos la tarjeta entera para calcular su posición exacta
-        const tarjeta = botonElemento.closest('.product-card');
-        if (tarjeta) {
-            const rect = tarjeta.getBoundingClientRect();
-            modal.style.alignItems = 'flex-start';
-            
-            // Le damos la distancia exacta para que se dibuje encima de la tarjeta
-            // Usamos Math.max(20, ...) para dejar un pequeño margen y no se pegue al techo
-            modalContent.style.marginTop = `${Math.max(20, rect.top)}px`; 
-        }
-    }
+    // Llenamos la información del producto
+    document.getElementById('modalImage').src = producto.imagen;
+    document.getElementById('modalImage').alt = producto.nombre;
+    document.getElementById('modalTitle').textContent = producto.nombre;
+    document.getElementById('modalDescription').textContent = producto.descripcion;
+    document.getElementById('modalPlazo').textContent = producto.plazo;
+    document.getElementById('modalMonto').textContent = producto.monto;
     
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalPlazo = document.getElementById('modalPlazo');
-    const modalMonto = document.getElementById('modalMonto');
-    const modalSectors = document.getElementById('modalSectors');
-    
-    modalImage.src = producto.imagen;
-    modalImage.alt = producto.nombre;
-    modalTitle.textContent = producto.nombre;
-    modalDescription.textContent = producto.descripcion;
-    modalPlazo.textContent = producto.plazo;
-    modalMonto.textContent = producto.monto;
-    
-    modalSectors.innerHTML = producto.sectores.map(s => 
+    document.getElementById('modalSectors').innerHTML = producto.sectores.map(s => 
         `<span class="modal-sector-tag">${escapeHtml(s)}</span>`
     ).join('');
     
-    // Reseteamos el scroll de la ventana por si lo habías bajado antes
-    modal.scrollTop = 0;
+    // === CÁLCULO EXACTO PARA CELULARES Y PC ===
+    if (botonElemento) {
+        const tarjeta = botonElemento.closest('.product-card');
+        if (tarjeta) {
+            // Calculamos cuánto has bajado en la página
+            const scrollY = window.scrollY || window.pageYOffset;
+            // Calculamos la distancia de la tarjeta
+            const rect = tarjeta.getBoundingClientRect();
+            // Sumamos ambas para tener el lugar exacto en el documento
+            const posicionExacta = scrollY + rect.top;
+            
+            // Forzamos al fondo oscuro a cubrir todo tu documento (no solo tu vista actual)
+            modal.style.position = 'absolute';
+            modal.style.height = document.documentElement.scrollHeight + 'px';
+            modal.style.alignItems = 'flex-start';
+            
+            // Empujamos el cuadro de información exactamente hasta la tarjeta
+            modalContent.style.marginTop = `${posicionExacta}px`;
+        }
+    }
     
+    // Mostramos la extensión
     modal.classList.add('active');
     
-    // ❌ ELIMINAMOS la línea document.body.style.overflow = 'hidden'; 
-    // Esta era la culpable de que el celular hiciera el "salto" hacia arriba.
-    
-    // Focus trap
-    setTimeout(() => {
-        modal.querySelector('.modal-close').focus();
-    }, 100);
+    // Nos aseguramos por completo de no bloquear la página para evitar que el celular te lance hacia arriba
+    document.body.style.overflow = '';
 }
 
 /**
@@ -1428,8 +1423,8 @@ function closeProductModal() {
     const modal = document.getElementById('productModal');
     modal.classList.remove('active');
     
-    // ❌ ELIMINAMOS la línea document.body.style.overflow = '';
-    // Como ya no bloqueamos el scroll al abrir, tampoco necesitamos restaurarlo al cerrar.
+    // Le quitamos la altura forzada para que se resetee la próxima vez
+    modal.style.height = 'auto'; 
 }
 
 /**
