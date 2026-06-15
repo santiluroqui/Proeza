@@ -1284,7 +1284,7 @@ function renderProductCard(producto) {
                     ${sectoresHtml}
                 </div>
                 
-                <button class="btn-product" onclick="openProductModal(${producto.id})" aria-label="Ver información completa de ${safeName}">
+                <button class="btn-product" onclick="openProductModal(${producto.id}, this)" aria-label="Ver información completa de ${safeName}">
                     Ver información completa
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1369,11 +1369,21 @@ function initFilters() {
 /**
  * Abre el modal de detalles del producto
  */
-function openProductModal(productId) {
+function openProductModal(productId, botonElemento) {
     const producto = productosData.find(p => p.id === productId);
     if (!producto) return;
     
     const modal = document.getElementById('productModal');
+    const modalContent = modal.querySelector('.modal-content');
+    
+    // Anulamos el centrado y calculamos la posición exacta del botón presionado
+    if (botonElemento) {
+        modal.style.alignItems = 'flex-start';
+        const rect = botonElemento.getBoundingClientRect();
+        // Le damos un margen superior para que aparezca a la misma altura de tu vista
+        modalContent.style.marginTop = `${rect.top}px`;
+    }
+    
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
